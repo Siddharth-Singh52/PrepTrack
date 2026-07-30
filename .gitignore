@@ -16,3 +16,9 @@ build/
 # Editor
 .vscode/
 .idea/
+
+# Ignore all Markdown files
+*.md
+
+# But keep the main README
+!README.md
