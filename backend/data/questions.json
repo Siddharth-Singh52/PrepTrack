@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Two Sum",
+    "topic": "Array",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/two-sum",
+    "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+    "title": "Best Time to Buy and Sell Stock",
+    "topic": "Array",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock",
+    "companyTags": ["Amazon", "Adobe"]
+  },
+  {
+    "title": "Binary Search",
+    "topic": "Binary Search",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/binary-search",
+    "companyTags": ["Google", "Microsoft"]
+  },
+  {
+    "title": "Merge Intervals",
+    "topic": "Intervals",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/merge-intervals",
+    "companyTags": ["Amazon", "Meta"]
+  },
+  {
+    "title": "Word Ladder",
+    "topic": "Graph",
+    "difficulty": "Hard",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/word-ladder",
+    "companyTags": ["Google", "Apple"]
+  }
+]
