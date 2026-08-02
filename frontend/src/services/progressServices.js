@@ -25,3 +25,12 @@ export const updateNotes = async (questionId, notes) => {
 
     return response.data;
 };
+
+export const toggleFavorite = async (questionId) => {
+
+    const response = await api.put("/progress/favorite", {
+        questionId,
+    });
+
+    return response.data;
+};

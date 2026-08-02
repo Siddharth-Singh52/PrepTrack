@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllQuestions } from "../services/questionServices";
-import { updateProgress, getUserProgress, updateNotes, } from "../services/progressServices";
+import { updateProgress, getUserProgress, updateNotes, toggleFavorite, } from "../services/progressServices";
 
 function Questions() {
 
@@ -59,7 +59,6 @@ function Questions() {
             );
 
             setQuestions(data.questions);
-
             const progressData = await getUserProgress();
             setProgress(progressData.progress);
         }
@@ -70,21 +69,45 @@ function Questions() {
 
     /* Function to get the status of a question for the current user */
     const getQuestionStatus = (questionId) => {
-
         const userProgress = progress.find( (item) => item.question.toString() === questionId );
         return userProgress ? userProgress.status : "Not Started";
 
     };
+    
+    /* Function to get the progress object for a specific question and user */
+    const getQuestionProgress = (questionId) => {
+        return progress.find(
+            (item) => item.question.toString() === questionId
+        );
+    };
 
+    /* Function to check if a question is marked as favorite by the user */
+    const isFavorite = (questionId) => {
+        const userProgress = progress.find( (item) => item.question.toString() === questionId );
+        return userProgress ? userProgress.favorite : false;
+    };
+
+    /* Function to handle saving notes for a specific question and update the backend */
     const handleSaveNotes = async (questionId) => {
 
         try {
             await updateNotes(questionId, notes[questionId]);
-
             const progressData = await getUserProgress();
             setProgress(progressData.progress);
-
             alert("Notes Saved!");
+        } 
+        catch (error) {
+            console.log(error);
+        }
+    };
+
+    /* Function to handle toggling favorite status for a specific question and update the backend */
+    const handleFavorite = async (questionId) => {
+
+        try {
+            await toggleFavorite(questionId);
+            const progressData = await getUserProgress();
+            setProgress(progressData.progress);
         } 
         catch (error) {
             console.log(error);
@@ -128,16 +151,20 @@ function Questions() {
 
             <p>Total Questions: {questions.length}</p>
 
-            {questions.map((question) => (
+            {questions.map((question) => {
 
-                <div
-                    key={question._id}
-                    style={{
-                        border: "1px solid white",
-                        padding: "15px",
-                        marginBottom: "15px",
-                    }}
-                >
+                const userProgress = getQuestionProgress(question._id);
+
+                return (
+
+                    <div
+                        key={question._id}
+                        style={{
+                            border: "1px solid white",
+                            padding: "15px",
+                            marginBottom: "15px",
+                        }}
+                    >
 
                     <h2>{question.title}</h2>
 
@@ -146,7 +173,20 @@ function Questions() {
                     <p> <strong>Difficulty:</strong> {question.difficulty} </p>
                     <p> <strong>Platform:</strong> {question.platform} </p>
 
+                    <button onClick={() => handleFavorite(question._id)}>
+                        {isFavorite(question._id) ? "⭐ Favorite" : "☆ Favorite"}
+                    </button>
+
+                    <br /><br />
+
                     <p> <strong>Status:</strong> {getQuestionStatus(question._id)}</p>
+
+                    <p> <strong>Revision Stage:</strong>{" "} {userProgress?.revisionStage || 0}</p>
+
+                    {/* Displaying the next revision date for the question if available */}
+                    <p> <strong>Next Revision:</strong>{" "}
+                        {userProgress?.nextRevisionDate ? new Date( userProgress.nextRevisionDate ).toLocaleDateString() : "--" }
+                    </p>
 
                     <h4>My Notes</h4>
                     <textarea
@@ -190,7 +230,8 @@ function Questions() {
                     </button>
 
                 </div>
-            ))}
+                );
+            })}
         </div>
     );
 }
