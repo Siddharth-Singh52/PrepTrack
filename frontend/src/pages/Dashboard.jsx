@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
 
@@ -14,6 +15,8 @@ const Dashboard = () => {
     const [content, setContent] = useState("");
 
     const [editingId, setEditingId] = useState(null);
+
+    const navigate = useNavigate();
 
     const fetchNotes = async () => {
         try {
@@ -131,6 +134,10 @@ const Dashboard = () => {
 
             <button onClick={handleLogout}>
                 Logout
+            </button>
+
+            <button onClick={() => navigate("/questions")}>
+                Question Bank
             </button>
 
             <hr />

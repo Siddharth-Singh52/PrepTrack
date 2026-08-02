@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const noteRoutes = require("./routes/noteRoutes");
 const questionRoutes = require("./routes/questionRoutes");
+const progressRoutes = require("./routes/progressRoutes");
 
 const app = express();
 const cors = require("cors");
@@ -22,6 +23,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/notes", noteRoutes); 
 
 app.use("/api/questions", questionRoutes);
+
+app.use("/api/progress", progressRoutes);
 
 app.get("/", (req, res) => {
     res.send("Interview Copilot API Running...");

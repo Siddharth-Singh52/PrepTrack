@@ -16,7 +16,7 @@ const userProgressSchema = new mongoose.Schema(
 
         status: {
             type: String,
-            enum: ["Not Started", "Solved", "Revision"],
+            enum: ["Not Started", "In Progress", "Completed"],
             default: "Not Started",
         },
 

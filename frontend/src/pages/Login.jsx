@@ -28,8 +28,10 @@ function Login() {
 
         try{
             const response = await api.post("/auth/login", formData);
+            console.log(response.data);
             localStorage.setItem("token", response.data.token);
             setToken(response.data.token);
+            
             
             setFormData({
                 email: "",
