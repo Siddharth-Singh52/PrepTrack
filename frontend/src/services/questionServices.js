@@ -18,3 +18,10 @@ export const getAllQuestions = async (
 
     return response.data;
 };
+
+export const getSingleQuestion = async (id) => {
+
+    const response = await api.get(`/questions/${id}`);
+    return response.data;
+
+};

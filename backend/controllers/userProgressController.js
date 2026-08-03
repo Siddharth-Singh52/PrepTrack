@@ -14,23 +14,51 @@ const updateProgress = async (req, res) => {
         if (progress) {
 
             progress.status = status;
-            await progress.save();
 
-        } 
+            if (status === "Completed") {
+                const revisionDays = [1, 4, 9, 18, 30];
+                const stage = Math.min(progress.revisionStage, 4);
+                const nextDate = new Date();
+
+                nextDate.setDate(nextDate.getDate() + revisionDays[stage]);
+
+                progress.revisionStage += 1;
+                progress.lastRevisedAt = new Date();
+                progress.nextRevisionDate = nextDate;
+                progress.completedAt = new Date();
+            }
+            await progress.save();
+        }
         else {
+
             progress = await UserProgress.create({
                 user: req.user.id,
                 question: questionId,
                 status,
+
+                revisionStage: status === "Completed" ? 1 : 0,
+                lastRevisedAt: status === "Completed" ? new Date() : null,
+                nextRevisionDate:
+                    status === "Completed"
+                        ? (() => {
+                            const d = new Date();
+                            d.setDate(d.getDate() + 1);
+                            return d;
+                        })()
+                        : null,
+
+                completedAt:
+                    status === "Completed"
+                        ? new Date()
+                        : null,
             });
         }
-
         res.status(200).json({
             success: true,
             progress,
         });
-
-    } catch (error) {
+    } 
+    catch (error) {
 
         console.log(error);
         res.status(500).json({
@@ -45,41 +73,69 @@ const updateNotes = async (req, res) => {
     try {
 
         const { questionId, notes } = req.body;
-
         let progress = await UserProgress.findOne({
             user: req.user.id,
             question: questionId,
         });
 
         if (progress) {
-
             progress.notes = notes;
             await progress.save();
-
-        } else {
-
+        } 
+        else {
             progress = await UserProgress.create({
                 user: req.user.id,
                 question: questionId,
                 notes,
             });
-
         }
 
         res.status(200).json({
             success: true,
             progress,
         });
-
-    } catch (error) {
-
+    } 
+    catch (error) {
         res.status(500).json({
             success: false,
             message: error.message,
         });
-
     }
+};
 
+const toggleFavorite = async (req, res) => {
+
+    try {
+
+        const { questionId } = req.body;
+        let progress = await UserProgress.findOne({
+            user: req.user.id,
+            question: questionId,
+        });
+
+        if (progress) {
+            progress.favorite = !progress.favorite;
+            await progress.save();
+        } 
+        else {
+            progress = await UserProgress.create({
+                user: req.user.id,
+                question: questionId,
+                favorite: true,
+            });
+        }
+        res.status(200).json({
+            success: true,
+            progress,
+        });
+
+    } 
+    catch (error) {
+        res.status(500).json({
+            success: false,
+            message: error.message,
+        });
+    }
 };
 
 const getUserProgress = async (req, res) => {
@@ -88,7 +144,7 @@ const getUserProgress = async (req, res) => {
 
         const progress = await UserProgress.find({
             user: req.user.id,
-        });
+        }).populate("question");
 
         res.status(200).json({
             success: true,
@@ -103,8 +159,44 @@ const getUserProgress = async (req, res) => {
     }
 };
 
+const getTodayRevisions = async (req, res) => {
+
+    try {
+
+        const today = new Date();
+
+        today.setHours(0, 0, 0, 0);
+
+        const revisions = await UserProgress.find({
+
+            user: req.user.id,
+
+            nextRevisionDate: {
+                $lte: today,
+            },
+
+        }).populate("question");
+
+        res.status(200).json({
+            success: true,
+            revisions,
+        });
+
+    } catch (error) {
+
+        res.status(500).json({
+            success: false,
+            message: error.message,
+        });
+
+    }
+
+};
+
 module.exports = {
     updateProgress,
     updateNotes,
     getUserProgress,
+    toggleFavorite,
+    getTodayRevisions,
 }

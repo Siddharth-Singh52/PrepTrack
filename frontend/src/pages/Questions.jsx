@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllQuestions } from "../services/questionServices";
 import { updateProgress, getUserProgress, updateNotes, toggleFavorite, } from "../services/progressServices";
+import { useNavigate } from "react-router-dom";
 
 function Questions() {
 
@@ -14,6 +15,8 @@ function Questions() {
 
     const [progress, setProgress] = useState([]);
     const [notes, setNotes] = useState({});
+
+    const navigate = useNavigate();
 
     useEffect(() => {
 
@@ -36,7 +39,7 @@ function Questions() {
             const notesObject = {};
 
             progressData.progress.forEach((item) => {
-                notesObject[item.question] = item.notes || "";
+                notesObject[item.question._id] = item.notes || "";
             });
 
             setNotes(notesObject);
@@ -69,21 +72,26 @@ function Questions() {
 
     /* Function to get the status of a question for the current user */
     const getQuestionStatus = (questionId) => {
-        const userProgress = progress.find( (item) => item.question.toString() === questionId );
-        return userProgress ? userProgress.status : "Not Started";
+        const userProgress = progress.find(
+            (item) => item.question._id === questionId
+        );
 
+        return userProgress ? userProgress.status : "Not Started";
     };
     
     /* Function to get the progress object for a specific question and user */
     const getQuestionProgress = (questionId) => {
         return progress.find(
-            (item) => item.question.toString() === questionId
+            (item) => item.question._id === questionId
         );
     };
 
     /* Function to check if a question is marked as favorite by the user */
     const isFavorite = (questionId) => {
-        const userProgress = progress.find( (item) => item.question.toString() === questionId );
+        const userProgress = progress.find(
+            (item) => item.question._id === questionId
+        );
+
         return userProgress ? userProgress.favorite : false;
     };
 
@@ -215,6 +223,10 @@ function Questions() {
                     </a>
 
                     <br /><br />
+
+                    <button onClick={() => navigate(`/questions/${question._id}`)}>
+                        Open Details
+                    </button>
 
                     {/* Buttons to update the status of the question */}
                     <button onClick={() => handleStatusChange(question._id, "Not Started") } >

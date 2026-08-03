@@ -34,3 +34,8 @@ export const toggleFavorite = async (questionId) => {
 
     return response.data;
 };
+
+export const getTodayRevisions = async () => {
+    const response = await api.get("/progress/today");
+    return response.data;
+};

@@ -30,6 +30,21 @@ const userProgressSchema = new mongoose.Schema(
             default: false,
         },
 
+        revisionStage: {
+            type: Number,
+            default: 0,
+        },
+
+        nextRevisionDate: {
+            type: Date,
+            default: null,
+        },
+
+        lastRevisedAt: {
+            type: Date,
+            default: null,
+        },
+
         completedAt: {
             type: Date,
         },

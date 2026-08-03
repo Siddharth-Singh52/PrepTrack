@@ -66,6 +66,18 @@ const Dashboard = () => {
                 Open Question Bank
             </button>
 
+            <br /><br />
+
+            <button onClick={() => navigate("/placements")}>
+                Placement Tracker
+            </button>
+
+            <br /><br />
+
+            <button onClick={() => navigate("/revision")}>
+                Revision Center
+            </button>
+
         </div>
     );
 };

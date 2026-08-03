@@ -6,6 +6,9 @@ import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
 import NotFound from "../pages/NotFound";
 import Questions from "../pages/Questions";
+import RevisionCenter from "../pages/RevisionCenter";
+import QuestionDetails from "../pages/QuestionDetails";
+import PlacementTracker from "../pages/PlacementTracker";
 
 function AppRoutes() {
   return (
@@ -13,7 +16,6 @@ function AppRoutes() {
       <Routes>
 
         <Route path="/login" element={<Login />} />
-
         <Route path="/register" element={ <Register />} />
 
         <Route path="/dashboard" element={
@@ -25,6 +27,24 @@ function AppRoutes() {
         <Route path="/questions" element={
           <ProtectedRoute>
             <Questions />
+          </ProtectedRoute>
+        } />
+
+        <Route path="/revision" element={
+          <ProtectedRoute>
+            <RevisionCenter />
+          </ProtectedRoute>
+        } />
+
+        <Route path="/questions/:id" element={
+          <ProtectedRoute>
+              <QuestionDetails />
+          </ProtectedRoute>
+        } />
+
+        <Route path="/placements" element={
+          <ProtectedRoute>
+            <PlacementTracker />
           </ProtectedRoute>
         } />
 

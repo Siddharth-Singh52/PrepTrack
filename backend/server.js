@@ -4,6 +4,8 @@ const connectDB = require("./config/db");
 const noteRoutes = require("./routes/noteRoutes");
 const questionRoutes = require("./routes/questionRoutes");
 const progressRoutes = require("./routes/progressRoutes");
+const dashboardRoutes = require("./routes/dashboardRoutes");
+const applicationRoutes = require("./routes/applicationRoutes");
 
 const app = express();
 const cors = require("cors");
@@ -25,6 +27,10 @@ app.use("/api/notes", noteRoutes);
 app.use("/api/questions", questionRoutes);
 
 app.use("/api/progress", progressRoutes);
+
+app.use("/api/dashboard", dashboardRoutes);
+
+app.use("/api/applications", applicationRoutes);
 
 app.get("/", (req, res) => {
     res.send("Interview Copilot API Running...");
