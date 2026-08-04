@@ -50,6 +50,11 @@ const applicationSchema = new mongoose.Schema(
             default: "Applied",
         },
 
+        priority: {
+            type: Boolean,
+            default: false,
+        },
+
         currentRound: {
             type: String,
             default: "",
