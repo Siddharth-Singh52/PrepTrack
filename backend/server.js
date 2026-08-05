@@ -7,6 +7,7 @@ const progressRoutes = require("./routes/progressRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
 const applicationRoutes = require("./routes/applicationRoutes");
 const interviewTimelineRoutes = require("./routes/interviewTimelineRoutes");
+const interviewExperienceRoutes = require("./routes/interviewExperienceRoutes");
 
 const app = express();
 const cors = require("cors");
@@ -34,6 +35,8 @@ app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/applications", applicationRoutes);
 
 app.use("/api/timeline", interviewTimelineRoutes);
+
+app.use("/api/experiences", interviewExperienceRoutes);
 
 app.get("/", (req, res) => {
     res.send("Interview Copilot API Running...");
