@@ -9,6 +9,7 @@ import Questions from "../pages/Questions";
 import RevisionCenter from "../pages/RevisionCenter";
 import QuestionDetails from "../pages/QuestionDetails";
 import PlacementTracker from "../pages/PlacementTracker";
+import Layout from "../components/layout/Layout";
 
 function AppRoutes() {
   return (
@@ -20,31 +21,41 @@ function AppRoutes() {
 
         <Route path="/dashboard" element={
           <ProtectedRoute>
-            <Dashboard />
+            <Layout>
+              <Dashboard />
+            </Layout>
           </ProtectedRoute>
         } />
 
         <Route path="/questions" element={
           <ProtectedRoute>
-            <Questions />
+            <Layout>
+              <Questions />
+            </Layout>
           </ProtectedRoute>
         } />
 
         <Route path="/revision" element={
           <ProtectedRoute>
-            <RevisionCenter />
+            <Layout>
+              <RevisionCenter />
+            </Layout>
           </ProtectedRoute>
         } />
 
         <Route path="/questions/:id" element={
           <ProtectedRoute>
+            <Layout>
               <QuestionDetails />
+            </Layout>
           </ProtectedRoute>
         } />
 
         <Route path="/placements" element={
           <ProtectedRoute>
-            <PlacementTracker />
+            <Layout>
+              <PlacementTracker />
+            </Layout>
           </ProtectedRoute>
         } />
 

@@ -13,6 +13,9 @@ import {
     updateExperience,
     deleteExperience,
 } from "../services/interviewExperienceServices";
+import PlacementAnalytics from "../components/placement/PlacementAnalytics";
+
+import "../styles/placement.css";
 
 function PlacementTracker() {
 
@@ -381,398 +384,432 @@ function PlacementTracker() {
 
     return (
 
-        <div>
+        <div className="placement-page">
 
-            <h1>Placement Tracker</h1>
+            <h1 className="page-title">
+                Placement Tracker
+            </h1>
 
-            <hr />
+            <div className="analytics-grid">
 
-            <h2>Placement Analytics</h2>
+                <div className="analytics-card">
+                    <h3>Total Applications</h3>
+                    <h2>{analytics.total}</h2>
+                </div>
 
-            <p><strong>Total Applications:</strong> {analytics.total}</p>
+                <div className="analytics-card">
+                    <h3>Offers</h3>
+                    <h2>{analytics.offer}</h2>
+                </div>
 
-            <p><strong>Offers:</strong> {analytics.offer}</p>
+                <div className="analytics-card">
+                    <h3>Interviews</h3>
+                    <h2>{analytics.interview}</h2>
+                </div>
 
-            <p><strong>Interviews:</strong> {analytics.interview}</p>
+                <div className="analytics-card">
+                    <h3>Online Assessments</h3>
+                    <h2>{analytics.oa}</h2>
+                </div>
 
-            <p><strong>Online Assessments:</strong> {analytics.oa}</p>
+                <div className="analytics-card">
+                    <h3>Upcoming Deadlines</h3>
+                    <h2>{analytics.upcoming}</h2>
+                </div>
 
-            <p><strong>Rejected:</strong> {analytics.rejected}</p>
+                <div className="analytics-card">
+                    <h3>Success Rate</h3>
+                    <h2>{analytics.successRate}%</h2>
+                </div>
 
-            <p><strong>Priority Companies:</strong> {analytics.priority}</p>
+            </div>
 
-            <p><strong>Upcoming Deadlines:</strong> {analytics.upcoming}</p>
+            <div className="placement-form">
 
-            <p><strong>Success Rate:</strong> {analytics.successRate}%</p>
+                <h2>
+                    {editingId ? "Update Application" : "Add New Application"}
+                </h2>
 
-            <hr />
+                <div className="form-grid">
 
-            <input
-                type="text"
-                placeholder="Company"
-                value={company}
-                onChange={(e) => setCompany(e.target.value)}
-            />
+                    <input
+                        type="text"
+                        placeholder="Company"
+                        value={company}
+                        onChange={(e) => setCompany(e.target.value)}
+                    />
 
-            <br /><br />
+                    <input
+                        type="text"
+                        placeholder="Role"
+                        value={role}
+                        onChange={(e) => setRole(e.target.value)}
+                    />
 
-            <input
-                type="text"
-                placeholder="Role"
-                value={role}
-                onChange={(e) => setRole(e.target.value)}
-            />
+                    <select
+                        value={status}
+                        onChange={(e) => setStatus(e.target.value)}
+                    >
+                        <option>Applied</option>
+                        <option>OA</option>
+                        <option>Interview</option>
+                        <option>Rejected</option>
+                        <option>Offer</option>
+                    </select>
 
-            <br /><br />
+                    <input
+                        type="date"
+                        value={applicationDate}
+                        onChange={(e) => setApplicationDate(e.target.value)}
+                    />
 
-            <select
-                value={status}
-                onChange={(e) => setStatus(e.target.value)}
-            >
-                <option>Applied</option>
-                <option>OA</option>
-                <option>Interview</option>
-                <option>Rejected</option>
-                <option>Offer</option>
-            </select>
+                    <input
+                        type="date"
+                        value={deadline}
+                        onChange={(e) => setDeadline(e.target.value)}
+                    />
 
-            <br /><br />
+                    <label className="priority-checkbox">
 
-            <h4>Application Date</h4>
+                        <input
+                            type="checkbox"
+                            checked={priority}
+                            onChange={(e) => setPriority(e.target.checked)}
+                        />
 
-            <input
-                type="date"
-                value={applicationDate}
-                onChange={(e) => setApplicationDate(e.target.value)}
-            />
+                        Priority Company
 
-            <br /><br />
+                    </label>
 
-            <h4>Deadline</h4>
+                </div>
 
-            <input
-                type="date"
-                value={deadline}
-                onChange={(e) => setDeadline(e.target.value)}
-            />
+                <button
+                    className="primary-btn"
+                    onClick={
+                        editingId
+                            ? handleUpdateApplication
+                            : handleAddApplication
+                    }
+                >
+                    {editingId ? "Update Application" : "Add Application"}
+                </button>
 
-            <br /><br />
+            </div>
 
-            <label>
+            <div className="filter-section">
 
-                <input
-                    type="checkbox"
-                    checked={priority}
-                    onChange={(e) => setPriority(e.target.checked)}
-                />
+                <h2>Filter Applications</h2>
 
-                {" "}Priority Company
+                <select
+                    className="filter-select"
+                    value={filterStatus}
+                    onChange={(e)=>setFilterStatus(e.target.value)}
+                >
 
-            </label>
+                    <option value="All">All</option>
+                    <option value="Applied">Applied</option>
+                    <option value="OA">OA</option>
+                    <option value="Interview">Interview</option>
+                    <option value="Offer">Offer</option>
+                    <option value="Rejected">Rejected</option>
 
-            <br /><br />
+                </select>
 
-            
-            <button onClick={ editingId ? handleUpdateApplication : handleAddApplication }>
-                {editingId ? "Update Application" : "Add Application"}
-            </button>
-
-            <hr />
-
-            <h3>Filter Applications</h3>
-
-            <select
-                value={filterStatus}
-                onChange={(e) => setFilterStatus(e.target.value)}
-            >
-                <option value="All">All</option>
-                <option value="Applied">Applied</option>
-                <option value="OA">OA</option>
-                <option value="Interview">Interview</option>
-                <option value="Offer">Offer</option>
-                <option value="Rejected">Rejected</option>
-            </select>
-
-            <br /><br />
+            </div>
 
             {filteredApplications.map((application) => (
 
                 <div
                     key={application._id}
-                    style={{
-                        border: "1px solid white",
-                        padding: "15px",
-                        marginBottom: "15px",
-                    }}
+                    className="application-card"
                 >
 
-                    <h3>
-                        {application.priority ? "⭐ " : ""}
-                        {application.company}
-                    </h3>
+                    <div className="application-header">
 
-                    <p>
-                        <strong>Role:</strong> {application.role}
-                    </p>
+                        <div>
 
-                    <p>
-                        <strong>Status:</strong>{" "}
+                            <h2>
+                                {application.priority ? "⭐ " : ""}
+                                {application.company}
+                            </h2>
 
-                        <span
-                            style={{
-                                color: getStatusColor(application.status),
-                                fontWeight: "bold",
-                            }}
-                        >
+                            <p className="application-role">
+                                {application.role}
+                            </p>
+
+                        </div>
+
+                        <div className="status-badge">
                             {
                                 application.status === "Applied"
                                     ? "🟡 Applied"
                                     : application.status === "OA"
-                                    ? "🔵 OA"
+                                    ? "🔵 Online Assessment"
                                     : application.status === "Interview"
                                     ? "🟣 Interview"
                                     : application.status === "Offer"
                                     ? "🟢 Offer"
                                     : "🔴 Rejected"
                             }
+                        </div>
+
+                </div>
+
+                <div className="application-details">
+
+                    <div className="detail-box">
+                        <span className="detail-label">Applied</span>
+
+                        <span className="detail-value">
+                            {
+                                application.applicationDate
+                                    ? new Date(
+                                        application.applicationDate
+                                    ).toLocaleDateString()
+                                    : "--"
+                            }
                         </span>
+                    </div>
 
-                    </p>
+                    <div className="detail-box">
+                        <span className="detail-label">Deadline</span>
 
-                    <p>
-                        <strong>Applied:</strong>{" "}
-                        {
-                            application.applicationDate
-                                ? new Date(application.applicationDate).toLocaleDateString()
-                                : "--"
-                        }
-                    </p>
+                        <span className="detail-value">
+                            {
+                                application.deadline
+                                    ? new Date(
+                                        application.deadline
+                                    ).toLocaleDateString()
+                                    : "--"
+                            }
+                        </span>
+                    </div>
 
-                    <p>
-                        <strong>Deadline:</strong>{" "}
-                        {
-                            application.deadline
-                                ? new Date(application.deadline).toLocaleDateString()
-                                : "--"
-                        }
-                    </p>
+                    <div className="detail-box">
+                        <span className="detail-label">Time Left</span>
 
-                    <p>
-                        <strong>Time Left:</strong>{" "}
-                        {getDeadlineStatus(application.deadline)}
-                    </p>
+                        <span className="detail-value">
+                            {getDeadlineStatus(application.deadline)}
+                        </span>
+                    </div>
 
-                    <button onClick={() => handleEdit(application)} >
+                </div>
+
+                <div className="card-actions">
+
+                    <button
+                        className="edit-btn"
+                        onClick={() => handleEdit(application)}
+                    >
                         Edit
                     </button>
 
-                    {" "}
-
-                    <button onClick={() => handleDelete(application._id)}>
+                    <button
+                        className="delete-btn"
+                        onClick={() => handleDelete(application._id)}
+                    >
                         Delete
                     </button>
 
-                    <hr />
-
                     <button
+                        className="timeline-btn"
                         onClick={() => {
 
                             if (expandedApplication === application._id) {
+
                                 setExpandedApplication(null);
-                            } 
-                            else {
+
+                            } else {
+
                                 setExpandedApplication(application._id);
+
                                 fetchTimeline(application._id);
+
                                 fetchExperiences(application._id);
+
                             }
+
                         }}
                     >
+
                         {
                             expandedApplication === application._id
-                                ? "Hide Timeline ▲"
-                                : "View Timeline ▼"
+                                ? "Hide Details ▲"
+                                : "View Details ▼"
                         }
+
                     </button>
+
+                </div>
 
                     {
                         expandedApplication === application._id && (
                             <>
-                                <hr />
+                                <div className="divider"></div>
 
-                                <h4>Interview Timeline</h4>
+                                <h3 className="section-heading">
+                                    Interview Timeline
+                                </h3>
 
-                                <input
-                                    type="text"
-                                    placeholder="Event Title"
-                                    value={eventTitle}
-                                    onChange={(e) => setEventTitle(e.target.value)}
-                                />
+                                <div className="timeline-form">
 
-                                <br /><br />
+                                    <input
+                                        type="text"
+                                        placeholder="Event Title"
+                                        value={eventTitle}
+                                        onChange={(e) => setEventTitle(e.target.value)}
+                                    />
 
-                                <textarea
-                                    placeholder="Description"
-                                    value={eventDescription}
-                                    onChange={(e) => setEventDescription(e.target.value)}
-                                />
+                                    <textarea
+                                        placeholder="Description"
+                                        value={eventDescription}
+                                        onChange={(e) => setEventDescription(e.target.value)}
+                                    />
 
-                                <br /><br />
+                                    <input
+                                        type="date"
+                                        value={eventDate}
+                                        onChange={(e) => setEventDate(e.target.value)}
+                                    />
 
-                                <input
-                                    type="date"
-                                    value={eventDate}
-                                    onChange={(e) => setEventDate(e.target.value)}
-                                />
+                                    <button
+                                        onClick={() => handleTimeline(application._id)}
+                                    >
+                                        {editingTimelineId ? "Update Event" : "Add Event"}
+                                    </button>
 
-                                <br /><br />
+                                </div>
 
-                                <button
-                                    onClick={() => handleTimeline(application._id)}
-                                >
-                                    {editingTimelineId ? "Update Event" : "Add Event"}
-                                </button>
-
-                                <hr />
+                                <div className="divider"></div>
 
                                 {timeline[application._id]?.map((event) => (
                                     <div
                                         key={event._id}
-                                        style={{
-                                            borderLeft: "3px solid cyan",
-                                            marginLeft: "10px",
-                                            paddingLeft: "15px",
-                                            marginBottom: "10px",
-                                        }}
+                                        className="timeline-card"
                                     >
                                         <h4>{event.title}</h4>
 
                                         <p>{event.description}</p>
 
                                         <p>
-                                            {new Date(event.eventDate).toLocaleDateString()}
+                                            📅 {new Date(event.eventDate).toLocaleDateString()}
                                         </p>
 
-                                        <button
-                                            onClick={() => {
-                                                setEventTitle(event.title);
-                                                setEventDescription(event.description);
-                                                setEventDate(
-                                                    event.eventDate.substring(0, 10)
-                                                );
-                                                setEditingTimelineId(event._id);
-                                            }}
-                                        >
-                                            Edit
-                                        </button>
+                                        <div className="card-actions">
 
-                                        {" "}
+                                            <button
+                                                className="edit-btn"
+                                                onClick={() => {
+                                                    setEventTitle(event.title);
+                                                    setEventDescription(event.description);
+                                                    setEventDate(event.eventDate.substring(0, 10));
+                                                    setEditingTimelineId(event._id);
+                                                }}
+                                            >
+                                                Edit
+                                            </button>
 
-                                        <button
-                                            onClick={async () => {
-                                                await deleteTimelineEvent(event._id);
-                                                fetchTimeline(application._id);
-                                            }}
-                                        >
-                                            Delete
-                                        </button>
+                                            <button
+                                                className="delete-btn"
+                                                onClick={async () => {
+                                                    await deleteTimelineEvent(event._id);
+                                                    fetchTimeline(application._id);
+                                                }}
+                                            >
+                                                Delete
+                                            </button>
+
+                                        </div>
                                     </div>
                                 ))}
 
-                                <hr />
+                                <div className="divider"></div>
 
-                                <h4>Interview Experiences</h4>
+                                <h3 className="section-heading">
+                                    Interview Experiences
+                                </h3>
 
-                                <input
-                                    type="text"
-                                    placeholder="Interview Round"
-                                    value={round}
-                                    onChange={(e) => setRound(e.target.value)}
-                                />
+                                <div className="experience-form">
 
-                                <br /><br />
+                                    <input
+                                        type="text"
+                                        placeholder="Interview Round"
+                                        value={round}
+                                        onChange={(e) => setRound(e.target.value)}
+                                    />
 
-                                <textarea
-                                    placeholder="Questions Asked"
-                                    value={questionsAsked}
-                                    onChange={(e) => setQuestionsAsked(e.target.value)}
-                                />
+                                    <textarea
+                                        placeholder="Questions Asked"
+                                        value={questionsAsked}
+                                        onChange={(e) => setQuestionsAsked(e.target.value)}
+                                    />
 
-                                <br /><br />
+                                    <textarea
+                                        placeholder="Notes"
+                                        value={experienceNotes}
+                                        onChange={(e) => setExperienceNotes(e.target.value)}
+                                    />
 
-                                <textarea
-                                    placeholder="Notes"
-                                    value={experienceNotes}
-                                    onChange={(e) => setExperienceNotes(e.target.value)}
-                                />
+                                    <button
+                                        onClick={() => handleExperience(application._id)}
+                                    >
+                                        {
+                                            editingExperienceId
+                                                ? "Update Experience"
+                                                : "Add Experience"
+                                        }
+                                    </button>
 
-                                <br /><br />
+                                </div>
 
-                                <button
-                                    onClick={() => handleExperience(application._id)}
-                                >
-                                    {
-                                        editingExperienceId
-                                            ? "Update Experience"
-                                            : "Add Experience"
-                                    }
-                                </button>
-
-                                <hr />
+                                <div className="divider"></div>
 
                                 {experiences[application._id]?.map((experience) => (
 
                                     <div
                                         key={experience._id}
-                                        style={{
-                                            border: "1px solid white",
-                                            padding: "10px",
-                                            marginBottom: "10px",
-                                        }}
+                                        className="experience-card"
                                     >
 
                                         <h4>{experience.round}</h4>
 
                                         <p>
-                                            <strong>Questions Asked:</strong>
+                                            <strong>Questions Asked</strong>
                                         </p>
 
                                         <p>{experience.questionsAsked}</p>
 
                                         <p>
-                                            <strong>Notes:</strong>
+                                            <strong>Notes</strong>
                                         </p>
 
                                         <p>{experience.notes}</p>
 
-                                        <button
-                                            onClick={() => {
+                                        <div className="card-actions">
 
-                                                setRound(experience.round);
+                                            <button
+                                                className="edit-btn"
+                                                onClick={() => {
+                                                    setRound(experience.round);
+                                                    setQuestionsAsked(experience.questionsAsked);
+                                                    setExperienceNotes(experience.notes);
+                                                    setEditingExperienceId(experience._id);
+                                                }}
+                                            >
+                                                Edit
+                                            </button>
 
-                                                setQuestionsAsked(experience.questionsAsked);
+                                            <button
+                                                className="delete-btn"
+                                                onClick={async () => {
+                                                    await deleteExperience(experience._id);
+                                                    fetchExperiences(application._id);
+                                                }}
+                                            >
+                                                Delete
+                                            </button>
 
-                                                setExperienceNotes(experience.notes);
-
-                                                setEditingExperienceId(experience._id);
-
-                                            }}
-                                        >
-                                            Edit
-                                        </button>
-
-                                        {" "}
-
-                                        <button
-                                            onClick={async () => {
-
-                                                await deleteExperience(experience._id);
-
-                                                fetchExperiences(application._id);
-
-                                            }}
-                                        >
-                                            Delete
-                                        </button>
+                                        </div>
 
                                     </div>
 

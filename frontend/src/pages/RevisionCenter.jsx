@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getUserProgress } from "../services/progressServices";
+import "../styles/revision.css";
 
 function RevisionCenter() {
 
@@ -34,55 +35,79 @@ function RevisionCenter() {
     }
 
     return (
+        <div className="revision-page">
 
-        <div>
+            <div className="revision-header">
+                <h1>Revision Center</h1>
+                <p>Review your scheduled DSA revisions.</p>
+            </div>
 
-            <h1>Revision Center</h1>
+            <p className="total-questions">
+                Total Revision Records : {questions.length}
+            </p>
 
-            <p>Total Revision Records : {questions.length}</p>
+            <div className="revision-grid">
 
-            {questions.map((item) => (
+                {questions.map((item) => (
 
-                <div
-                    key={item._id}
-                    style={{
-                        border:"1px solid white",
-                        marginBottom:"15px",
-                        padding:"15px"
-                    }}
-                >
+                    <div
+                        key={item._id}
+                        className="revision-card"
+                    >
 
-                    <h2>{item.question.title}</h2>
+                        <h2>{item.question.title}</h2>
 
-                    <p>
-                        <strong>Status:</strong> {item.status}
-                    </p>
+                        <div className="revision-info">
 
-                    <p>
-                        <strong>Revision Stage:</strong> {item.revisionStage}
-                    </p>
+                            <div className="revision-box">
+                                <span className="revision-label">Status</span>
+                                <span className="revision-value">
+                                    {item.status}
+                                </span>
+                            </div>
 
-                    <p>
-                        <strong>Next Revision:</strong>{" "}
-                        {
-                            item.nextRevisionDate
-                            ? new Date(item.nextRevisionDate).toLocaleDateString()
-                            : "--"
-                        }
-                    </p>
+                            <div className="revision-box">
+                                <span className="revision-label">
+                                    Revision Stage
+                                </span>
 
-                    <a href={item.question.link} target="_blank" rel="noreferrer" >
-                        Solve on LeetCode
-                    </a>
+                                <span className="revision-value">
+                                    {item.revisionStage}
+                                </span>
+                            </div>
 
-                    <br /><br />
+                            <div className="revision-box">
+                                <span className="revision-label">
+                                    Next Revision
+                                </span>
 
-                </div>
+                                <span className="revision-value">
+                                    {item.nextRevisionDate
+                                        ? new Date(
+                                            item.nextRevisionDate
+                                        ).toLocaleDateString()
+                                        : "--"}
+                                </span>
+                            </div>
 
-            ))}
+                        </div>
+
+                        <a
+                            href={item.question.link}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="solve-btn"
+                        >
+                            Solve on LeetCode
+                        </a>
+
+                    </div>
+
+                ))}
+
+            </div>
 
         </div>
-
     );
 
 }

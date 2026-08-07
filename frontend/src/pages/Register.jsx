@@ -1,6 +1,7 @@
 import { useState } from "react";
 import api from "../services/api";
 import { useNavigate } from "react-router-dom";
+import "../styles/register.css";
 
 
 function Register() {
@@ -12,6 +13,9 @@ function Register() {
         email: "",
         password: ""
     });
+
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
 
@@ -26,68 +30,129 @@ function Register() {
 
         e.preventDefault();
 
-        try{
-            const response = await api.post("/auth/register", formData);
-            alert("Registration successful! Please login.");
+        setError("");
+
+        if (!formData.name.trim()) {
+            setError("Please enter your name.");
+            return;
+        }
+
+        if (!formData.email.trim()) {
+            setError("Please enter your email.");
+            return;
+        }
+
+        if (!formData.password.trim()) {
+            setError("Please enter your password.");
+            return;
+        }
+
+        if (formData.password.length < 6) {
+            setError("Password must be at least 6 characters.");
+            return;
+        }
+
+        setLoading(true);
+
+        try {
+
+            await api.post("/auth/register", formData);
 
             setFormData({
-                name: "",
-                email: "",
-                password: ""
+                name:"",
+                email:"",
+                password:""
             });
-            
+
             navigate("/login");
+
         }
-        catch(error){
-            console.log(error);
+        catch (error) {
+
+            setError(
+                error.response?.data?.message ||
+                "Registration failed."
+            );
+
         }
+        finally {
+
+            setLoading(false);
+
+        }
+
     };
 
     return (
 
-        <div>
+        <div className="register-page">
 
-            <h1>Register</h1>
+            <div className="register-card">
 
-            <form onSubmit = {handleSubmit}>
+                <h1>Create Account 🚀</h1>
 
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="Enter Name"
-                    value={formData.name}
-                    onChange={handleChange}
-                />
+                <p>
+                    Register to start tracking your interview preparation.
+                </p>
 
-                <br /><br />
+                <form
+                    className="register-form"
+                    onSubmit={handleSubmit}
+                >
 
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Enter Email"
-                    value={formData.email}
-                    onChange={handleChange}
-                />
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Enter Full Name"
+                        value={formData.name}
+                        onChange={handleChange}
+                    />
 
-                <br /><br />
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter Email"
+                        value={formData.email}
+                        onChange={handleChange}
+                    />
 
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Enter Password"
-                    value={formData.password}
-                    onChange={handleChange}
-                />
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Enter Password"
+                        value={formData.password}
+                        onChange={handleChange}
+                    />
 
-                <br /><br />
+                    {
+                        error && (
+                            <div className="error-message">
+                                {error}
+                            </div>
+                        )
+                    }
 
-                <button type="submit">
+                    <button
+                        className="register-btn"
+                        type="submit"
+                        disabled={loading}
+                    >
+                        {loading ? "Creating Account..." : "Register"}
+                    </button>
 
-                    Register
+                </form>
 
-                </button>
+                <p className="login-link">
 
-            </form>
+                    Already have an account?{" "}
+
+                    <span onClick={() => navigate("/login")}>
+                        Login
+                    </span>
+
+                </p>
+
+            </div>
 
         </div>
 

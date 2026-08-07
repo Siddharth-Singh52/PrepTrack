@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getAllQuestions } from "../services/questionServices";
 import { updateProgress, getUserProgress, updateNotes, toggleFavorite, } from "../services/progressServices";
 import { useNavigate } from "react-router-dom";
+import "../styles/questions.css";
 
 function Questions() {
 
@@ -123,129 +124,247 @@ function Questions() {
     };
 
     return (
-        <div>
-            <h1>Question Bank</h1>
+        <div className="question-page">
 
-            {/* Search input for filtering questions by title */}
-            <input
-                type="text"
-                placeholder="Search Questions..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-            />
+            <div className="question-header">
+                <h1>Question Bank</h1>
+                <p>Track, practice and manage your DSA preparation.</p>
+            </div>
 
-            <br /><br />
+            <div className="search-section">
 
-            {/* Dropdowns for filtering questions by difficulty, topic, and platform */}
-            <select value={difficulty} onChange={(e) => setDifficulty(e.target.value)} >
-                <option value="">All Difficulties</option>
-                <option value="Easy">Easy</option>
-                <option value="Medium">Medium</option>
-                <option value="Hard">Hard</option>
-            </select>
+                <input
+                    className="search-box"
+                    type="text"
+                    placeholder="Search Questions..."
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                />
 
-            <select value={topic} onChange={(e) => setTopic(e.target.value)} >
-                <option value="">All Topics</option>
-                <option value="Array">Array</option>
-                <option value="Binary Search">Binary Search</option>
-                <option value="Intervals">Intervals</option>
-                <option value="Graph">Graph</option>
-            </select>
+                <div className="filter-grid">
 
-            <select value={platform} onChange={(e) => setPlatform(e.target.value)} >
-                <option value="">All Platforms</option>
-                <option value="LeetCode">LeetCode</option>
-            </select>
-
-            <p>Total Questions: {questions.length}</p>
-
-            {questions.map((question) => {
-
-                const userProgress = getQuestionProgress(question._id);
-
-                return (
-
-                    <div
-                        key={question._id}
-                        style={{
-                            border: "1px solid white",
-                            padding: "15px",
-                            marginBottom: "15px",
-                        }}
+                    <select
+                        value={difficulty}
+                        onChange={(e) => setDifficulty(e.target.value)}
                     >
+                        <option value="">All Difficulties</option>
+                        <option value="Easy">Easy</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Hard">Hard</option>
+                    </select>
 
-                    <h2>{question.title}</h2>
+                    <select
+                        value={topic}
+                        onChange={(e) => setTopic(e.target.value)}
+                    >
+                        <option value="">All Topics</option>
+                        <option value="Array">Array</option>
+                        <option value="Binary Search">Binary Search</option>
+                        <option value="Intervals">Intervals</option>
+                        <option value="Graph">Graph</option>
+                    </select>
 
-                    {/* Displaying question details */}
-                    <p> <strong>Topic:</strong> {question.topic} </p>
-                    <p> <strong>Difficulty:</strong> {question.difficulty} </p>
-                    <p> <strong>Platform:</strong> {question.platform} </p>
-
-                    <button onClick={() => handleFavorite(question._id)}>
-                        {isFavorite(question._id) ? "⭐ Favorite" : "☆ Favorite"}
-                    </button>
-
-                    <br /><br />
-
-                    <p> <strong>Status:</strong> {getQuestionStatus(question._id)}</p>
-
-                    <p> <strong>Revision Stage:</strong>{" "} {userProgress?.revisionStage || 0}</p>
-
-                    {/* Displaying the next revision date for the question if available */}
-                    <p> <strong>Next Revision:</strong>{" "}
-                        {userProgress?.nextRevisionDate ? new Date( userProgress.nextRevisionDate ).toLocaleDateString() : "--" }
-                    </p>
-
-                    <h4>My Notes</h4>
-                    <textarea
-                        rows="4"
-                        cols="50"
-                        placeholder="Write your notes here..."
-                        value={notes[question._id] || ""}
-                        onChange={(e) =>
-                            setNotes({
-                                ...notes,
-                                [question._id]: e.target.value,
-                            })
-                        }
-                    />
-
-                    <br /><br />
-
-                    <button onClick={() => handleSaveNotes(question._id)} >
-                        Save Notes
-                    </button>
-
-                    <br /><br />
-
-                    <a href={question.link} target="_blank" rel="noreferrer" >
-                        Solve Question
-                    </a>
-
-                    <br /><br />
-
-                    <button onClick={() => navigate(`/questions/${question._id}`)}>
-                        Open Details
-                    </button>
-
-                    {/* Buttons to update the status of the question */}
-                    <button onClick={() => handleStatusChange(question._id, "Not Started") } >
-                        Not Started
-                    </button>
-
-                    <button onClick={() => handleStatusChange(question._id, "In Progress") } >
-                        In Progress
-                    </button>
-
-                    <button onClick={() => handleStatusChange(question._id, "Completed") } >
-                        Completed
-                    </button>
+                    <select
+                        value={platform}
+                        onChange={(e) => setPlatform(e.target.value)}
+                    >
+                        <option value="">All Platforms</option>
+                        <option value="LeetCode">LeetCode</option>
+                    </select>
 
                 </div>
-                );
-            })}
+
+            </div>
+
+            <p className="total-questions">
+                Total Questions : {questions.length}
+            </p>
+
+            <div className="questions-grid">
+
+                {questions.map((question) => {
+
+                    const userProgress = getQuestionProgress(question._id);
+
+                    return (
+
+                        <div
+                            key={question._id}
+                            className="question-card"
+                        >
+
+                            <div className="question-top">
+
+                                <div>
+
+                                    <h2 className="question-title">
+                                        {question.title}
+                                    </h2>
+
+                                    <div className="question-meta">
+
+                                        <span className="meta-badge">
+                                            {question.topic}
+                                        </span>
+
+                                        <span className="meta-badge">
+                                            {question.difficulty}
+                                        </span>
+
+                                        <span className="meta-badge">
+                                            {question.platform}
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                                <button
+                                    className="favorite-btn"
+                                    onClick={() => handleFavorite(question._id)}
+                                >
+                                    {isFavorite(question._id)
+                                        ? "⭐ Favorite"
+                                        : "☆ Favorite"}
+                                </button>
+
+                            </div>
+
+                            <div className="question-info">
+
+                                <div className="info-box">
+
+                                    <span className="info-label">
+                                        Status
+                                    </span>
+
+                                    <span className="info-value">
+                                        {getQuestionStatus(question._id)}
+                                    </span>
+
+                                </div>
+
+                                <div className="info-box">
+
+                                    <span className="info-label">
+                                        Revision Stage
+                                    </span>
+
+                                    <span className="info-value">
+                                        {userProgress?.revisionStage || 0}
+                                    </span>
+
+                                </div>
+
+                                <div className="info-box">
+
+                                    <span className="info-label">
+                                        Next Revision
+                                    </span>
+
+                                    <span className="info-value">
+
+                                        {
+                                            userProgress?.nextRevisionDate
+                                                ? new Date(
+                                                    userProgress.nextRevisionDate
+                                                ).toLocaleDateString()
+                                                : "--"
+                                        }
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div className="notes-box">
+
+                                <h3>My Notes</h3>
+
+                                <textarea
+
+                                    placeholder="Write your notes..."
+
+                                    value={notes[question._id] || ""}
+
+                                    onChange={(e) =>
+                                        setNotes({
+                                            ...notes,
+                                            [question._id]: e.target.value,
+                                        })
+                                    }
+
+                                />
+
+                            </div>
+
+                            <div className="card-buttons">
+
+                                <div className="action-buttons">
+
+                                    <button
+                                        className="primary-btn"
+                                        onClick={() => handleSaveNotes(question._id)}
+                                    >
+                                        Save Notes
+                                    </button>
+
+                                    <button
+                                        className="secondary-btn"
+                                        onClick={() => window.open(question.link, "_blank")}
+                                    >
+                                        Solve Question
+                                    </button>
+
+                                    <button
+                                        className="secondary-btn"
+                                        onClick={() => navigate(`/questions/${question._id}`)}
+                                    >
+                                        Details
+                                    </button>
+
+                                </div>
+
+                                <div className="status-buttons">
+
+                                    <button
+                                        className="secondary-btn"
+                                        onClick={() => handleStatusChange(question._id,"Not Started")}
+                                    >
+                                        Not Started
+                                    </button>
+
+                                    <button
+                                        className="warning-btn"
+                                        onClick={() => handleStatusChange(question._id,"In Progress")}
+                                    >
+                                        In Progress
+                                    </button>
+
+                                    <button
+                                        className="success-btn"
+                                        onClick={() => handleStatusChange(question._id,"Completed")}
+                                    >
+                                        Completed
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    );
+
+                })}
+
+            </div>
+
         </div>
     );
+
 }
 
 export default Questions;
+
