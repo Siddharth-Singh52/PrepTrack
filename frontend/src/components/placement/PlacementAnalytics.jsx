@@ -1,4 +1,4 @@
-import StatCard from "../StatCard";
+import StatCard from "../statCard";
 
 function PlacementAnalytics({ analytics }) {
 

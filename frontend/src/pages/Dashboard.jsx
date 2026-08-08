@@ -6,7 +6,7 @@ import { getDashboardAnalytics, getUpcomingDeadlines, } from "../services/dashbo
 import { getTodayRevisions } from "../services/progressServices";
 import "../styles/dashboard.css";
 
-import StatCard from "../components/StatCard";
+import StatCard from "../components/statCard";
 
 const Dashboard = () => {
 
