@@ -18,7 +18,7 @@ function Navbar() {
             <div>
 
                 <h2>Welcome Back 👋</h2>
-                <p>Track your interview preparation progress.</p>
+                <p>Track your Interview Preparation progress.</p>
 
             </div>
 

@@ -20,13 +20,11 @@
    Analytics
 ========================= */
 
-.analytics-grid{
-
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:20px;
-    margin-bottom:40px;
-
+.analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
 }
 
 .analytics-card{
@@ -642,13 +640,51 @@
 
 }
 
-@media (max-width:900px){
+@media (max-width: 1200px) {
+    .analytics-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
 
-.timeline-form,
-.experience-form{
+@media (max-width: 900px) {
 
-    grid-template-columns:1fr;
+    .analytics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-form,
+    .experience-form {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-form button,
+    .experience-form button {
+        width: 100%;
+    }
+
+    .application-details {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .analytics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .application-details {
+        grid-template-columns: 1fr;
+    }
+
+    .page-title {
+        font-size: 36px;
+    }
 }
 
 .timeline-form button,
@@ -665,7 +701,6 @@
     margin:30px 0;
 }
 
-}
 
 .application-header{
     display:flex;
@@ -686,4 +721,25 @@
     background:#312e81;
     font-weight:600;
     color:white;
+}
+
+/* ===========================
+   Timeline / Details Button
+=========================== */
+
+.timeline-btn {
+    background: #374151;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.timeline-btn:hover {
+    background: #4f46e5;
+    transform: translateY(-2px);
 }

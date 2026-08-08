@@ -1,104 +1,373 @@
-.revision-page{
-    width:100%;
-    max-width:1400px;
-    margin:auto;
-    padding:20px;
+/* =========================================
+   REVISION CENTER
+========================================= */
+
+.revision-page {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 20px 60px;
+    box-sizing: border-box;
 }
 
-.revision-header{
-    margin-bottom:35px;
+/* =========================================
+   HEADER
+========================================= */
+
+.revision-header {
+    margin-bottom: 36px;
 }
 
-.revision-header h1{
-    font-size:48px;
-    color:#fff;
-    margin-bottom:10px;
+.revision-header h1 {
+    margin: 0 0 6px;
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.15;
 }
 
-.revision-header p{
-    color:#94a3b8;
-    font-size:18px;
+.revision-header p {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 18px;
 }
 
-.revision-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(420px,1fr));
-    gap:25px;
+/* =========================================
+   TOTAL RECORDS
+========================================= */
+
+.revision-total {
+    margin: 0 0 25px;
+    color: #94a3b8;
+    font-size: 18px;
 }
 
-.revision-card{
-    background:#1f2437;
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:18px;
-    padding:28px;
-    transition:.3s;
+/* =========================================
+   GRID
+========================================= */
+
+.revision-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    box-sizing: border-box;
 }
 
-.revision-card:hover{
-    transform:translateY(-5px);
-    border-color:#6366f1;
+/* =========================================
+   CARD
+========================================= */
+
+.revision-card {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+
+    display: block !important;
+
+    background: #1f2437;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+
+    padding: 30px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
-.revision-card h2{
-    color:white;
-    margin-bottom:18px;
-    font-size:30px;
+.revision-card:hover {
+    transform: translateY(-4px);
+    border-color: #6366f1;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
 }
 
-.revision-info{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-    margin:25px 0;
+/* =========================================
+   TITLE + BUTTON
+========================================= */
+
+.revision-title-section {
+    width: 100%;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: flex-start !important;
+
+    gap: 18px;
+
+    box-sizing: border-box;
 }
 
-.revision-box{
-    display:flex;
-    flex-direction:column;
-    gap:8px;
+.revision-title-section h2 {
+    width: 100%;
+
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 26px;
+    font-weight: 700;
+
+    line-height: 1.3;
+
+    overflow-wrap: break-word;
+    word-break: normal;
 }
 
-.revision-label{
-    color:#94a3b8;
-    font-size:13px;
-    text-transform:uppercase;
+/* =========================================
+   REVIEW BUTTON
+========================================= */
+
+.revision-review-btn {
+    display: inline-flex !important;
+
+    align-items: center;
+    justify-content: center;
+
+    width: auto !important;
+    min-width: 160px;
+
+    padding: 12px 20px;
+
+    background: #6366f1;
+
+    color: #ffffff;
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
 }
 
-.revision-value{
-    color:white;
-    font-size:18px;
-    font-weight:600;
+.revision-review-btn:hover {
+    background: #4f46e5;
+    transform: translateY(-2px);
 }
 
-.solve-btn{
-    margin-top:20px;
-    display:inline-flex;
-    justify-content:center;
-    align-items:center;
+/* =========================================
+   DIVIDER
+========================================= */
 
-    width:170px;
-    height:52px;
+.revision-divider {
+    width: 100%;
+    height: 1px;
 
-    text-decoration:none;
-    background:#6366f1;
-    color:white;
+    margin: 24px 0;
 
-    border-radius:12px;
-    font-weight:600;
+    background: rgba(255, 255, 255, 0.08);
 }
 
-.solve-btn:hover{
-    background:#4f46e5;
+/* =========================================
+   DETAILS
+========================================= */
+
+.revision-details {
+    width: 100%;
+
+    display: grid !important;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr)
+        minmax(0, 1.2fr);
+
+    gap: 20px;
+
+    box-sizing: border-box;
 }
 
-@media(max-width:900px){
+/* =========================================
+   DETAIL ITEM
+========================================= */
 
-    .revision-info{
-        grid-template-columns:1fr;
+.revision-detail {
+    min-width: 0;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: flex-start;
+
+    gap: 8px;
+
+    box-sizing: border-box;
+}
+
+/* =========================================
+   LABEL
+========================================= */
+
+.revision-detail-label {
+    color: #94a3b8;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    letter-spacing: 0.5px;
+
+    line-height: 1.4;
+
+    white-space: normal;
+}
+
+/* =========================================
+   VALUE
+========================================= */
+
+.revision-detail-value {
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    line-height: 1.4;
+
+    white-space: normal;
+
+    overflow-wrap: break-word;
+}
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.revision-empty {
+    background: #1f2437;
+
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+
+    border-radius: 18px;
+
+    padding: 50px 30px;
+
+    text-align: center;
+}
+
+.revision-empty h2 {
+    margin: 0 0 10px;
+    color: #ffffff;
+}
+
+.revision-empty p {
+    margin: 0 0 25px;
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+/* =========================================
+   EMPTY STATE BUTTON
+========================================= */
+
+.revision-primary-btn {
+    background: #6366f1;
+
+    color: #ffffff;
+
+    border: none;
+    border-radius: 10px;
+
+    padding: 12px 22px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+.revision-primary-btn:hover {
+    background: #4f46e5;
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   LOADING
+========================================= */
+
+.revision-loading {
+    min-height: 60vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.revision-loading h2 {
+    margin: 0 0 8px;
+    color: #ffffff;
+}
+
+.revision-loading p {
+    margin: 0;
+    color: #94a3b8;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+
+    .revision-grid {
+        grid-template-columns: 1fr;
     }
 
-    .revision-grid{
-        grid-template-columns:1fr;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+    .revision-page {
+        padding: 20px 15px 40px;
+    }
+
+    .revision-header h1 {
+        font-size: 38px;
+    }
+
+    .revision-header p {
+        font-size: 16px;
+    }
+
+    .revision-card {
+        padding: 22px;
+    }
+
+    .revision-title-section h2 {
+        font-size: 23px;
+    }
+
+    .revision-review-btn {
+        width: 100% !important;
+    }
+
+    .revision-details {
+        grid-template-columns: 1fr !important;
+        gap: 18px;
     }
 
 }

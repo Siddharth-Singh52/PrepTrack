@@ -11,39 +11,90 @@ const updateProgress = async (req, res) => {
             question: questionId,
         });
 
+        // =========================================
+        // If progress record already exists
+        // =========================================
+
         if (progress) {
+
+            const previousStatus = progress.status;
 
             progress.status = status;
 
-            if (status === "Completed") {
+            // -----------------------------------------
+            // Only increase revision stage when:
+            // 1. Question is being completed
+            // 2. It was NOT already completed
+            // -----------------------------------------
+
+            if (
+                status === "Completed" &&
+                previousStatus !== "Completed"
+            ) {
+
                 const revisionDays = [1, 4, 9, 18, 30];
-                const stage = Math.min(progress.revisionStage, 4);
+
+                // Current stage before increasing
+                const currentStage = Math.min(
+                    progress.revisionStage || 0,
+                    4
+                );
+
                 const nextDate = new Date();
 
-                nextDate.setDate(nextDate.getDate() + revisionDays[stage]);
+                nextDate.setDate(
+                    nextDate.getDate() + revisionDays[currentStage]
+                );
 
-                progress.revisionStage += 1;
+                // Increase stage only once
+                progress.revisionStage = Math.min(
+                    (progress.revisionStage || 0) + 1,
+                    5
+                );
+
                 progress.lastRevisedAt = new Date();
+
                 progress.nextRevisionDate = nextDate;
+
                 progress.completedAt = new Date();
             }
+
             await progress.save();
+
         }
+
+        // =========================================
+        // If progress record doesn't exist
+        // =========================================
+
         else {
 
             progress = await UserProgress.create({
+
                 user: req.user.id,
+
                 question: questionId,
+
                 status,
 
-                revisionStage: status === "Completed" ? 1 : 0,
-                lastRevisedAt: status === "Completed" ? new Date() : null,
+                revisionStage:
+                    status === "Completed" ? 1 : 0,
+
+                lastRevisedAt:
+                    status === "Completed"
+                        ? new Date()
+                        : null,
+
                 nextRevisionDate:
                     status === "Completed"
                         ? (() => {
+
                             const d = new Date();
+
                             d.setDate(d.getDate() + 1);
+
                             return d;
+
                         })()
                         : null,
 
@@ -51,21 +102,35 @@ const updateProgress = async (req, res) => {
                     status === "Completed"
                         ? new Date()
                         : null,
+
             });
+
         }
+
         res.status(200).json({
+
             success: true,
+
             progress,
+
         });
-    } 
+
+    }
+
     catch (error) {
 
         console.log(error);
+
         res.status(500).json({
+
             success: false,
+
             message: error.message,
+
         });
+
     }
+
 };
 
 const updateNotes = async (req, res) => {

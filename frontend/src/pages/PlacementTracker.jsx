@@ -136,6 +136,21 @@ function PlacementTracker() {
 
     const handleAddApplication = async () => {
 
+        if (!company.trim()) {
+            alert("Please enter company name.");
+            return;
+        }
+
+        if (!role.trim()) {
+            alert("Please enter role.");
+            return;
+        }
+
+        if (!applicationDate) {
+            alert("Please select application date.");
+            return;
+        }
+
         try {
 
             await createApplication({
@@ -160,8 +175,12 @@ function PlacementTracker() {
 
             console.log(error);
 
-        }
+            alert(
+                error.response?.data?.message ||
+                "Failed to add application."
+            );
 
+        }
     };
 
     const handleUpdateApplication = async () => {
@@ -210,6 +229,14 @@ function PlacementTracker() {
 
     const handleDelete = async (id) => {
 
+        const confirmed = window.confirm(
+            "Are you sure you want to delete this application?"
+        );
+
+        if (!confirmed) {
+            return;
+        }
+
         try {
 
             await deleteApplication(id);
@@ -220,8 +247,12 @@ function PlacementTracker() {
 
             console.log(error);
 
-        }
+            alert(
+                error.response?.data?.message ||
+                "Failed to delete application."
+            );
 
+        }
     };
 
     const filteredApplications = filterStatus === "All" ? applications : applications.filter(

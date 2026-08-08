@@ -7,7 +7,7 @@ function Sidebar() {
         <aside className="sidebar">
 
             <div className="sidebar-logo">
-                <h2>Interview Copilot</h2>
+                <h2>PrepTrack</h2>
             </div>
 
             <nav>
