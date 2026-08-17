@@ -12,6 +12,7 @@ function Questions() {
     const [platform, setPlatform] = useState("");
 
     const [questions, setQuestions] = useState([]);
+    const [allQuestions, setAllQuestions] = useState([]);
     const [loading, setLoading] = useState(true);
 
     const [progress, setProgress] = useState([]);
@@ -19,13 +20,19 @@ function Questions() {
 
     const navigate = useNavigate();
 
+    const uniqueTopics = [...new Set(allQuestions.map((question) => question.topic).filter(Boolean))].sort((a, b) => a.localeCompare(b));
+    const uniquePlatforms = [...new Set(allQuestions.map((question) => question.platform).filter(Boolean))].sort((a, b) => a.localeCompare(b));
+
     useEffect(() => {
 
         /* Fetching questions and user progress when the component mounts or when filters change */
         const fetchQuestions = async () => {
             try {
-                const data = await getAllQuestions( search, difficulty, topic, platform );
-                setQuestions(data.questions);
+                const allData = await getAllQuestions("", "", "", "");
+                setAllQuestions(allData.questions || []);
+
+                const data = await getAllQuestions(search, difficulty, topic, platform);
+                setQuestions(data.questions || []);
             } 
             catch (error) {
                 console.log(error);
@@ -34,16 +41,26 @@ function Questions() {
                 setLoading(false);
             }
 
-            const progressData = await getUserProgress();
-            setProgress(progressData.progress);
+            try {
+                const progressData = await getUserProgress();
+                const validProgress = (progressData.progress || []).filter(
+                    (item) => item?.question?._id
+                );
 
-            const notesObject = {};
+                setProgress(validProgress);
 
-            progressData.progress.forEach((item) => {
-                notesObject[item.question._id] = item.notes || "";
-            });
+                const notesObject = {};
 
-            setNotes(notesObject);
+                validProgress.forEach((item) => {
+                    notesObject[item.question._id] = item.notes || "";
+                });
+
+                setNotes(notesObject);
+            } catch (error) {
+                console.log(error);
+                setProgress([]);
+                setNotes({});
+            }
         };
 
         fetchQuestions();
@@ -74,7 +91,7 @@ function Questions() {
     /* Function to get the status of a question for the current user */
     const getQuestionStatus = (questionId) => {
         const userProgress = progress.find(
-            (item) => item.question._id === questionId
+            (item) => item?.question?._id === questionId
         );
 
         return userProgress ? userProgress.status : "Not Started";
@@ -83,14 +100,14 @@ function Questions() {
     /* Function to get the progress object for a specific question and user */
     const getQuestionProgress = (questionId) => {
         return progress.find(
-            (item) => item.question._id === questionId
+            (item) => item?.question?._id === questionId
         );
     };
 
     /* Function to check if a question is marked as favorite by the user */
     const isFavorite = (questionId) => {
         const userProgress = progress.find(
-            (item) => item.question._id === questionId
+            (item) => item?.question?._id === questionId
         );
 
         return userProgress ? userProgress.favorite : false;
@@ -158,10 +175,11 @@ function Questions() {
                         onChange={(e) => setTopic(e.target.value)}
                     >
                         <option value="">All Topics</option>
-                        <option value="Array">Array</option>
-                        <option value="Binary Search">Binary Search</option>
-                        <option value="Intervals">Intervals</option>
-                        <option value="Graph">Graph</option>
+                        {uniqueTopics.map((topicOption) => (
+                            <option key={topicOption} value={topicOption}>
+                                {topicOption}
+                            </option>
+                        ))}
                     </select>
 
                     <select
@@ -169,7 +187,11 @@ function Questions() {
                         onChange={(e) => setPlatform(e.target.value)}
                     >
                         <option value="">All Platforms</option>
-                        <option value="LeetCode">LeetCode</option>
+                        {uniquePlatforms.map((platformOption) => (
+                            <option key={platformOption} value={platformOption}>
+                                {platformOption}
+                            </option>
+                        ))}
                     </select>
 
                 </div>

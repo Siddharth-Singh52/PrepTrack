@@ -13,9 +13,13 @@ function RevisionCenter() {
         const fetchRevisionQuestions = async () => {
             try {
                 const data = await getUserProgress();
-                setQuestions(data.progress || []);
+                const validProgress = (data.progress || []).filter(
+                    (item) => item?.question?._id
+                );
+                setQuestions(validProgress);
             } catch (error) {
                 console.log(error);
+                setQuestions([]);
             } finally {
                 setLoading(false);
             }

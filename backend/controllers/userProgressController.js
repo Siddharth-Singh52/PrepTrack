@@ -1,10 +1,29 @@
 const UserProgress = require("../models/userProgress");
+const Question = require("../models/question");
+
+const ensureValidQuestion = async (questionId) => {
+    if (!questionId) {
+        return null;
+    }
+
+    const question = await Question.findById(questionId);
+    return question;
+};
 
 const updateProgress = async (req, res) => {
 
     try {
 
         const { questionId, status } = req.body;
+
+        const question = await ensureValidQuestion(questionId);
+
+        if (!question) {
+            return res.status(404).json({
+                success: false,
+                message: "Question not found",
+            });
+        }
 
         let progress = await UserProgress.findOne({
             user: req.user.id,
@@ -138,6 +157,16 @@ const updateNotes = async (req, res) => {
     try {
 
         const { questionId, notes } = req.body;
+
+        const question = await ensureValidQuestion(questionId);
+
+        if (!question) {
+            return res.status(404).json({
+                success: false,
+                message: "Question not found",
+            });
+        }
+
         let progress = await UserProgress.findOne({
             user: req.user.id,
             question: questionId,
@@ -173,6 +202,16 @@ const toggleFavorite = async (req, res) => {
     try {
 
         const { questionId } = req.body;
+
+        const question = await ensureValidQuestion(questionId);
+
+        if (!question) {
+            return res.status(404).json({
+                success: false,
+                message: "Question not found",
+            });
+        }
+
         let progress = await UserProgress.findOne({
             user: req.user.id,
             question: questionId,
@@ -211,9 +250,11 @@ const getUserProgress = async (req, res) => {
             user: req.user.id,
         }).populate("question");
 
+        const validProgress = progress.filter((item) => item.question);
+
         res.status(200).json({
             success: true,
-            progress,
+            progress: validProgress,
         });
 
     } catch (error) {
@@ -242,9 +283,11 @@ const getTodayRevisions = async (req, res) => {
 
         }).populate("question");
 
+        const validRevisions = revisions.filter((item) => item.question);
+
         res.status(200).json({
             success: true,
-            revisions,
+            revisions: validRevisions,
         });
 
     } catch (error) {

@@ -25,14 +25,17 @@ function QuestionDetails() {
                 setQuestion(data.question);
 
                 const progressData = await getUserProgress();
+                const validProgress = (progressData.progress || []).filter(
+                    (item) => item?.question?._id
+                );
 
-                const currentProgress = progressData.progress.find(
+                const currentProgress = validProgress.find(
                     (item) => item.question._id === id
                 );
 
                 if (currentProgress) {
                     setProgress(currentProgress);
-                    setNotes(currentProgress.notes);
+                    setNotes(currentProgress.notes || "");
                 }
             }
             catch(error){
@@ -52,17 +55,29 @@ function QuestionDetails() {
         return <h2>Loading...</h2>;
     }
 
+    if (!question) {
+        return (
+            <div>
+                <h2>Question not found</h2>
+                <p>The requested question could not be loaded.</p>
+            </div>
+        );
+    }
+
     const handleStatusChange = async (status) => {
         try {
             await updateProgress(id, status);
 
             const progressData = await getUserProgress();
+            const validProgress = (progressData.progress || []).filter(
+                (item) => item?.question?._id
+            );
 
-            const currentProgress = progressData.progress.find(
+            const currentProgress = validProgress.find(
                 (item) => item.question._id === id
             );
 
-            setProgress(currentProgress);
+            setProgress(currentProgress || null);
         } 
         catch (error) {
             console.log(error);
@@ -74,13 +89,16 @@ function QuestionDetails() {
             await updateNotes(id, notes);
 
             const progressData = await getUserProgress();
+            const validProgress = (progressData.progress || []).filter(
+                (item) => item?.question?._id
+            );
 
-            const currentProgress = progressData.progress.find(
+            const currentProgress = validProgress.find(
                 (item) => item.question._id === id
             );
 
-            setProgress(currentProgress);
-            setNotes(currentProgress.notes || "");
+            setProgress(currentProgress || null);
+            setNotes(currentProgress?.notes || "");
 
             alert("Notes Saved");
         } 
@@ -94,12 +112,15 @@ function QuestionDetails() {
             await toggleFavorite(id);
 
             const progressData = await getUserProgress();
+            const validProgress = (progressData.progress || []).filter(
+                (item) => item?.question?._id
+            );
 
-            const currentProgress = progressData.progress.find(
+            const currentProgress = validProgress.find(
                 (item) => item.question._id === id
             );
 
-            setProgress(currentProgress);
+            setProgress(currentProgress || null);
         } catch (error) {
             console.log(error);
         }

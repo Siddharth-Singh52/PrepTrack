@@ -39,4 +39,694 @@
     "link": "https://leetcode.com/problems/word-ladder",
     "companyTags": ["Google", "Apple"]
   }
+  ,
+  {
+      "title": "Contains Duplicate",
+      "topic": "Hash Table",
+      "difficulty": "Easy",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/contains-duplicate/",
+      "companyTags": ["Amazon", "Google", "Apple"]
+  },
+  {
+      "title": "Valid Anagram",
+      "topic": "String",
+      "difficulty": "Easy",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/valid-anagram/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Valid Parentheses",
+      "topic": "Stack",
+      "difficulty": "Easy",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/valid-parentheses/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Maximum Subarray",
+      "topic": "Array",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/maximum-subarray/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Product of Array Except Self",
+      "topic": "Array",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/product-of-array-except-self/",
+      "companyTags": ["Amazon", "Microsoft", "Apple"]
+  },
+  {
+      "title": "3Sum",
+      "topic": "Two Pointers",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/3sum/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Container With Most Water",
+      "topic": "Two Pointers",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/container-with-most-water/",
+      "companyTags": ["Amazon", "Google", "Adobe"]
+  },
+  {
+      "title": "Longest Substring Without Repeating Characters",
+      "topic": "Sliding Window",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Longest Palindromic Substring",
+      "topic": "String",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/longest-palindromic-substring/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Group Anagrams",
+      "topic": "Hash Table",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/group-anagrams/",
+      "companyTags": ["Amazon", "Google", "Uber"]
+  },
+  {
+      "title": "Top K Frequent Elements",
+      "topic": "Heap",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/top-k-frequent-elements/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Merge Two Sorted Lists",
+      "topic": "Linked List",
+      "difficulty": "Easy",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/merge-two-sorted-lists/",
+      "companyTags": ["Amazon", "Microsoft", "Apple"]
+  },
+  {
+      "title": "Reverse Linked List",
+      "topic": "Linked List",
+      "difficulty": "Easy",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/reverse-linked-list/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Linked List Cycle",
+      "topic": "Linked List",
+      "difficulty": "Easy",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/linked-list-cycle/",
+      "companyTags": ["Amazon", "Microsoft", "Apple"]
+  },
+  {
+      "title": "Remove Nth Node From End of List",
+      "topic": "Linked List",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/",
+      "companyTags": ["Amazon", "Microsoft", "Google"]
+  },
+  {
+      "title": "Binary Tree Inorder Traversal",
+      "topic": "Binary Tree",
+      "difficulty": "Easy",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/binary-tree-inorder-traversal/",
+      "companyTags": ["Amazon", "Microsoft", "Google"]
+  },
+  {
+      "title": "Maximum Depth of Binary Tree",
+      "topic": "Binary Tree",
+      "difficulty": "Easy",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Invert Binary Tree",
+      "topic": "Binary Tree",
+      "difficulty": "Easy",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/invert-binary-tree/",
+      "companyTags": ["Google", "Amazon", "Microsoft"]
+  },
+  {
+      "title": "Binary Tree Level Order Traversal",
+      "topic": "Binary Tree",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/binary-tree-level-order-traversal/",
+      "companyTags": ["Amazon", "Microsoft", "Google"]
+  },
+  {
+      "title": "Lowest Common Ancestor of a Binary Search Tree",
+      "topic": "Binary Search Tree",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/",
+      "companyTags": ["Amazon", "Microsoft", "Facebook"]
+  },
+  {
+      "title": "Search in a Binary Search Tree",
+      "topic": "Binary Search Tree",
+      "difficulty": "Easy",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/search-in-a-binary-search-tree/",
+      "companyTags": ["Amazon", "Microsoft"]
+  },
+  {
+      "title": "Kth Smallest Element in a BST",
+      "topic": "Binary Search Tree",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/kth-smallest-element-in-a-bst/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Number of Islands",
+      "topic": "Graph",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/number-of-islands/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Clone Graph",
+      "topic": "Graph",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/clone-graph/",
+      "companyTags": ["Amazon", "Google", "Facebook"]
+  },
+  {
+      "title": "Course Schedule",
+      "topic": "Graph",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/course-schedule/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Climbing Stairs",
+      "topic": "Dynamic Programming",
+      "difficulty": "Easy",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/climbing-stairs/",
+      "companyTags": ["Amazon", "Google", "Apple"]
+  },
+  {
+      "title": "House Robber",
+      "topic": "Dynamic Programming",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/house-robber/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Coin Change",
+      "topic": "Dynamic Programming",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/coin-change/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Longest Increasing Subsequence",
+      "topic": "Dynamic Programming",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/longest-increasing-subsequence/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Word Break",
+      "topic": "Dynamic Programming",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/word-break/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Koko Eating Bananas",
+      "topic": "Binary Search",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/koko-eating-bananas/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Search a 2D Matrix",
+      "topic": "Binary Search",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/search-a-2d-matrix/",
+      "companyTags": ["Amazon", "Microsoft", "Google"]
+  }
+  ,
+  {
+      "title": "Two Sum II - Input Array Is Sorted",
+      "topic": "Two Pointers",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Remove Duplicates from Sorted Array",
+      "topic": "Two Pointers",
+      "difficulty": "Easy",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/remove-duplicates-from-sorted-array/",
+      "companyTags": ["Amazon", "Microsoft", "Apple"]
+  },
+  {
+      "title": "Move Zeroes",
+      "topic": "Two Pointers",
+      "difficulty": "Easy",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/move-zeroes/",
+      "companyTags": ["Amazon", "Microsoft", "Facebook"]
+  },
+  {
+      "title": "Valid Palindrome",
+      "topic": "Two Pointers",
+      "difficulty": "Easy",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/valid-palindrome/",
+      "companyTags": ["Amazon", "Microsoft", "Facebook"]
+  },
+  {
+      "title": "Trapping Rain Water",
+      "topic": "Two Pointers",
+      "difficulty": "Hard",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/trapping-rain-water/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Longest Repeating Character Replacement",
+      "topic": "Sliding Window",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/longest-repeating-character-replacement/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Permutation in String",
+      "topic": "Sliding Window",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/permutation-in-string/",
+      "companyTags": ["Amazon", "Microsoft", "Google"]
+  },
+  {
+      "title": "Minimum Window Substring",
+      "topic": "Sliding Window",
+      "difficulty": "Hard",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/minimum-window-substring/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Find All Anagrams in a String",
+      "topic": "Sliding Window",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/find-all-anagrams-in-a-string/",
+      "companyTags": ["Amazon", "Microsoft", "Facebook"]
+  },
+  {
+      "title": "Subarray Sum Equals K",
+      "topic": "Prefix Sum",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/subarray-sum-equals-k/",
+      "companyTags": ["Amazon", "Google", "Facebook"]
+  },
+  {
+      "title": "Majority Element",
+      "topic": "Array",
+      "difficulty": "Easy",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/majority-element/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Maximum Product Subarray",
+      "topic": "Array",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/maximum-product-subarray/",
+      "companyTags": ["Amazon", "Microsoft", "Google"]
+  },
+  {
+      "title": "Find Minimum in Rotated Sorted Array",
+      "topic": "Binary Search",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Search in Rotated Sorted Array",
+      "topic": "Binary Search",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Find Peak Element",
+      "topic": "Binary Search",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/find-peak-element/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Time Based Key-Value Store",
+      "topic": "Binary Search",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/time-based-key-value-store/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Median of Two Sorted Arrays",
+      "topic": "Binary Search",
+      "difficulty": "Hard",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/median-of-two-sorted-arrays/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Daily Temperatures",
+      "topic": "Monotonic Stack",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/daily-temperatures/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Evaluate Reverse Polish Notation",
+      "topic": "Stack",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/evaluate-reverse-polish-notation/",
+      "companyTags": ["Amazon", "Microsoft", "Google"]
+  },
+  {
+      "title": "Min Stack",
+      "topic": "Stack",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/min-stack/",
+      "companyTags": ["Amazon", "Microsoft", "Google"]
+  },
+  {
+      "title": "Largest Rectangle in Histogram",
+      "topic": "Monotonic Stack",
+      "difficulty": "Hard",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/largest-rectangle-in-histogram/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Next Greater Element I",
+      "topic": "Monotonic Stack",
+      "difficulty": "Easy",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/next-greater-element-i/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Implement Queue using Stacks",
+      "topic": "Stack",
+      "difficulty": "Easy",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/implement-queue-using-stacks/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "LRU Cache",
+      "topic": "Hash Table",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/lru-cache/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Longest Consecutive Sequence",
+      "topic": "Hash Table",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/longest-consecutive-sequence/",
+      "companyTags": ["Amazon", "Google", "Facebook"]
+  },
+  {
+      "title": "Happy Number",
+      "topic": "Hash Table",
+      "difficulty": "Easy",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/happy-number/",
+      "companyTags": ["Amazon", "Google"]
+  },
+  {
+      "title": "Intersection of Two Arrays",
+      "topic": "Hash Table",
+      "difficulty": "Easy",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/intersection-of-two-arrays/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Reverse Linked List II",
+      "topic": "Linked List",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/reverse-linked-list-ii/",
+      "companyTags": ["Amazon", "Microsoft", "Google"]
+  },
+  {
+      "title": "Reorder List",
+      "topic": "Linked List",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/reorder-list/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Add Two Numbers",
+      "topic": "Linked List",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/add-two-numbers/",
+      "companyTags": ["Amazon", "Microsoft", "Google"]
+  },
+  {
+      "title": "Copy List with Random Pointer",
+      "topic": "Linked List",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/copy-list-with-random-pointer/",
+      "companyTags": ["Amazon", "Microsoft", "Google"]
+  },
+  {
+      "title": "Merge K Sorted Lists",
+      "topic": "Linked List",
+      "difficulty": "Hard",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/merge-k-sorted-lists/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Diameter of Binary Tree",
+      "topic": "Binary Tree",
+      "difficulty": "Easy",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/diameter-of-binary-tree/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Balanced Binary Tree",
+      "topic": "Binary Tree",
+      "difficulty": "Easy",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/balanced-binary-tree/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Same Tree",
+      "topic": "Binary Tree",
+      "difficulty": "Easy",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/same-tree/",
+      "companyTags": ["Amazon", "Microsoft", "Google"]
+  },
+  {
+      "title": "Validate Binary Search Tree",
+      "topic": "Binary Search Tree",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/validate-binary-search-tree/",
+      "companyTags": ["Amazon", "Microsoft", "Google"]
+  },
+  {
+      "title": "Binary Tree Right Side View",
+      "topic": "Binary Tree",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/binary-tree-right-side-view/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Construct Binary Tree from Preorder and Inorder Traversal",
+      "topic": "Binary Tree",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Serialize and Deserialize Binary Tree",
+      "topic": "Binary Tree",
+      "difficulty": "Hard",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Flood Fill",
+      "topic": "Graph",
+      "difficulty": "Easy",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/flood-fill/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Rotting Oranges",
+      "topic": "Graph",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/rotting-oranges/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Pacific Atlantic Water Flow",
+      "topic": "Graph",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/pacific-atlantic-water-flow/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Graph Valid Tree",
+      "topic": "Graph",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/graph-valid-tree/",
+      "companyTags": ["Amazon", "Google", "Facebook"]
+  },
+  {
+      "title": "Network Delay Time",
+      "topic": "Graph",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/network-delay-time/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Unique Paths",
+      "topic": "Dynamic Programming",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/unique-paths/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Longest Common Subsequence",
+      "topic": "Dynamic Programming",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/longest-common-subsequence/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Partition Equal Subset Sum",
+      "topic": "Dynamic Programming",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/partition-equal-subset-sum/",
+      "companyTags": ["Amazon", "Microsoft", "Google"]
+  },
+  {
+      "title": "Decode Ways",
+      "topic": "Dynamic Programming",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/decode-ways/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Edit Distance",
+      "topic": "Dynamic Programming",
+      "difficulty": "Hard",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/edit-distance/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Combination Sum",
+      "topic": "Backtracking",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/combination-sum/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Subsets",
+      "topic": "Backtracking",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/subsets/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Permutations",
+      "topic": "Backtracking",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/permutations/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "Word Search",
+      "topic": "Backtracking",
+      "difficulty": "Medium",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/word-search/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+      "title": "N-Queens",
+      "topic": "Backtracking",
+      "difficulty": "Hard",
+      "platform": "LeetCode",
+      "link": "https://leetcode.com/problems/n-queens/",
+      "companyTags": ["Amazon", "Google", "Microsoft"]
+  }
 ]

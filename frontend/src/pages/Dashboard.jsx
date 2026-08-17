@@ -164,6 +164,9 @@ const Dashboard = () => {
             ? Math.round((completedQuestions / totalQuestions) * 100)
             : 0;
 
+    const safeTodayRevisions = Array.isArray(todayRevisions)
+        ? todayRevisions.filter((item) => item?.question)
+        : [];
 
     return (
 
@@ -457,7 +460,7 @@ const Dashboard = () => {
 
 
                 {
-                    todayRevisions.length === 0 ? (
+                    safeTodayRevisions.length === 0 ? (
 
                         <div className="empty-card">
 
@@ -480,45 +483,48 @@ const Dashboard = () => {
                         <div className="revision-list">
 
                             {
-                                todayRevisions.map((item) => (
+                                safeTodayRevisions.map((item) => {
+                                    const question = item.question;
 
-                                    <div
-                                        key={item._id}
-                                        className="revision-card"
-                                    >
+                                    return (
+                                        <div
+                                            key={item._id || question?._id}
+                                            className="revision-card"
+                                        >
 
-                                        <div>
+                                            <div>
 
-                                            <span className="revision-badge">
-                                                Stage {item.revisionStage}
-                                            </span>
+                                                <span className="revision-badge">
+                                                    Stage {item.revisionStage || 0}
+                                                </span>
 
-                                            <h3>
-                                                {item.question.title}
-                                            </h3>
+                                                <h3>
+                                                    {question?.title || "Question"}
+                                                </h3>
 
-                                            <p>
-                                                <strong>Topic:</strong>{" "}
-                                                {item.question.topic}
-                                            </p>
+                                                <p>
+                                                    <strong>Topic:</strong>{" "}
+                                                    {question?.topic || "Uncategorized"}
+                                                </p>
+
+                                            </div>
+
+                                            <button
+                                                className="primary-btn"
+                                                onClick={() =>
+                                                    navigate(
+                                                        question?._id
+                                                            ? `/questions/${question._id}`
+                                                            : "/questions"
+                                                    )
+                                                }
+                                            >
+                                                Review Now
+                                            </button>
 
                                         </div>
-
-
-                                        <button
-                                            className="primary-btn"
-                                            onClick={() =>
-                                                navigate(
-                                                    `/questions/${item.question._id}`
-                                                )
-                                            }
-                                        >
-                                            Review Now
-                                        </button>
-
-                                    </div>
-
-                                ))
+                                    );
+                                })
                             }
 
                         </div>
