@@ -1,0 +1,30 @@
+{
+  "name": "preptrack-ai",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "dev:api": "npm --prefix backend run dev",
+    "build": "npm --prefix frontend run build && esbuild server.js --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=frontend/dist/server.cjs",
+    "start": "node -e \"process.env.NODE_ENV='production'; import('./frontend/dist/server.cjs')\"",
+    "lint": "npm --prefix frontend run lint",
+    "install:all": "npm install && npm install --prefix backend && npm install --prefix frontend"
+  },
+  "dependencies": {
+    "@google/genai": "^2.4.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.3",
+    "mammoth": "^1.12.1",
+    "mongoose": "^9.9.4",
+    "multer": "^2.2.0",
+    "pdf-parse": "^2.4.5",
+    "vite": "^6.2.3"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  }
+}

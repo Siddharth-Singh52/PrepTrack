@@ -1,0 +1,758 @@
+[
+  {
+    "title": "Two Sum",
+    "topic": "Arrays",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/two-sum/",
+    "companyTags": ["Google", "Amazon", "Meta", "Apple", "Microsoft"],
+    "description": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target."
+  },
+  {
+    "title": "Best Time to Buy and Sell Stock",
+    "topic": "Arrays",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+    "companyTags": ["Amazon", "Meta", "Microsoft", "Goldman Sachs", "Uber"],
+    "description": "You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock."
+  },
+  {
+    "title": "Contains Duplicate",
+    "topic": "Arrays",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/contains-duplicate/",
+    "companyTags": ["Apple", "Microsoft", "Amazon", "Adobe"],
+    "description": "Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct."
+  },
+  {
+    "title": "Product of Array Except Self",
+    "topic": "Arrays",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/product-of-array-except-self/",
+    "companyTags": ["Amazon", "Meta", "Apple", "Microsoft", "Walmart"],
+    "description": "Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i]."
+  },
+  {
+    "title": "Maximum Subarray",
+    "topic": "Arrays",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/maximum-subarray/",
+    "companyTags": ["Google", "Amazon", "Microsoft", "Flipkart", "JPMorgan"],
+    "description": "Given an integer array nums, find the subarray with the largest sum, and return its sum (Kadane's Algorithm)."
+  },
+  {
+    "title": "3Sum",
+    "topic": "Two Pointers",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/3sum/",
+    "companyTags": ["Meta", "Amazon", "Google", "Apple", "Microsoft"],
+    "description": "Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0."
+  },
+  {
+    "title": "Container With Most Water",
+    "topic": "Two Pointers",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/container-with-most-water/",
+    "companyTags": ["Google", "Amazon", "Meta", "Goldman Sachs", "Adobe"],
+    "description": "Find two lines that together with the x-axis form a container, such that the container contains the most water."
+  },
+  {
+    "title": "Trapping Rain Water",
+    "topic": "Two Pointers",
+    "difficulty": "Hard",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/trapping-rain-water/",
+    "companyTags": ["Google", "Amazon", "Meta", "Goldman Sachs", "Uber"],
+    "description": "Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining."
+  },
+  {
+    "title": "Valid Palindrome",
+    "topic": "Two Pointers",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/valid-palindrome/",
+    "companyTags": ["Meta", "Microsoft", "Amazon", "Uber"],
+    "description": "A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward."
+  },
+  {
+    "title": "Valid Anagram",
+    "topic": "Strings",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/valid-anagram/",
+    "companyTags": ["Amazon", "Google", "Uber", "Apple"],
+    "description": "Given two strings s and t, return true if t is an anagram of s, and false otherwise."
+  },
+  {
+    "title": "Group Anagrams",
+    "topic": "Hash Table",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/group-anagrams/",
+    "companyTags": ["Amazon", "Meta", "Google", "Uber", "Flipkart"],
+    "description": "Given an array of strings strs, group the anagrams together. You can return the answer in any order."
+  },
+  {
+    "title": "Longest Substring Without Repeating Characters",
+    "topic": "Sliding Window",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+    "companyTags": ["Amazon", "Microsoft", "Meta", "Google", "Adobe"],
+    "description": "Given a string s, find the length of the longest substring without repeating characters."
+  },
+  {
+    "title": "Longest Repeating Character Replacement",
+    "topic": "Sliding Window",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/longest-repeating-character-replacement/",
+    "companyTags": ["Google", "Amazon", "Meta", "Uber"],
+    "description": "You are given a string s and an integer k. You can choose any character of the string and change it to any other uppercase English character at most k times."
+  },
+  {
+    "title": "Minimum Window Substring",
+    "topic": "Sliding Window",
+    "difficulty": "Hard",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/minimum-window-substring/",
+    "companyTags": ["Meta", "Amazon", "Google", "Microsoft", "Uber"],
+    "description": "Given two strings s and t of lengths m and n respectively, return the minimum window substring of s such that every character in t is included in the window."
+  },
+  {
+    "title": "Valid Parentheses",
+    "topic": "Stack",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/valid-parentheses/",
+    "companyTags": ["Meta", "Amazon", "Google", "Microsoft", "Goldman Sachs"],
+    "description": "Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid."
+  },
+  {
+    "title": "Min Stack",
+    "topic": "Stack",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/min-stack/",
+    "companyTags": ["Amazon", "Microsoft", "Goldman Sachs", "Walmart"],
+    "description": "Design a stack that supports push, pop, top, and retrieving the minimum element in constant time."
+  },
+  {
+    "title": "Evaluate Reverse Polish Notation",
+    "topic": "Stack",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/evaluate-reverse-polish-notation/",
+    "companyTags": ["Google", "Amazon", "Microsoft", "Atlassian"],
+    "description": "Evaluate the value of an arithmetic expression in Reverse Polish Notation."
+  },
+  {
+    "title": "Daily Temperatures",
+    "topic": "Stack",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/daily-temperatures/",
+    "companyTags": ["Meta", "Amazon", "Google", "Netflix"],
+    "description": "Given an array of integers temperatures represents the daily temperatures, return an array answer such that answer[i] is the number of days you have to wait after the ith day to get a warmer temperature."
+  },
+  {
+    "title": "Largest Rectangle in Histogram",
+    "topic": "Stack",
+    "difficulty": "Hard",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/largest-rectangle-in-histogram/",
+    "companyTags": ["Google", "Amazon", "Meta", "Uber"],
+    "description": "Given an array of integers heights representing the histogram's bar height where the width of each bar is 1, return the area of the largest rectangle in the histogram."
+  },
+  {
+    "title": "Binary Search",
+    "topic": "Binary Search",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/binary-search/",
+    "companyTags": ["Microsoft", "Google", "Amazon", "Apple"],
+    "description": "Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums."
+  },
+  {
+    "title": "Search a 2D Matrix",
+    "topic": "Binary Search",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/search-a-2d-matrix/",
+    "companyTags": ["Amazon", "Microsoft", "Meta", "Goldman Sachs"],
+    "description": "Write an efficient algorithm that searches for a value target in an m x n integer matrix matrix."
+  },
+  {
+    "title": "Find Minimum in Rotated Sorted Array",
+    "topic": "Binary Search",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/",
+    "companyTags": ["Google", "Microsoft", "Amazon", "Meta"],
+    "description": "Suppose an array of length n sorted in ascending order is rotated between 1 and n times. Find the minimum element."
+  },
+  {
+    "title": "Search in Rotated Sorted Array",
+    "topic": "Binary Search",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+    "companyTags": ["Amazon", "Meta", "Google", "Microsoft", "Apple"],
+    "description": "Given the array nums after the possible rotation and an integer target, return the index of target if it is in nums, or -1 if it is not in nums."
+  },
+  {
+    "title": "Median of Two Sorted Arrays",
+    "topic": "Binary Search",
+    "difficulty": "Hard",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/median-of-two-sorted-arrays/",
+    "companyTags": ["Google", "Amazon", "Microsoft", "Goldman Sachs", "Apple"],
+    "description": "Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays in O(log (m+n)) runtime."
+  },
+  {
+    "title": "Reverse Linked List",
+    "topic": "Linked List",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/reverse-linked-list/",
+    "companyTags": ["Amazon", "Google", "Microsoft", "Apple", "Meta"],
+    "description": "Given the head of a singly linked list, reverse the list, and return the reversed list."
+  },
+  {
+    "title": "Merge Two Sorted Lists",
+    "topic": "Linked List",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/merge-two-sorted-lists/",
+    "companyTags": ["Amazon", "Microsoft", "Google", "Meta", "Adobe"],
+    "description": "You are given the heads of two sorted linked lists list1 and list2. Merge the two lists into one sorted list."
+  },
+  {
+    "title": "Linked List Cycle",
+    "topic": "Linked List",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/linked-list-cycle/",
+    "companyTags": ["Amazon", "Microsoft", "Meta", "JPMorgan"],
+    "description": "Given head, the head of a linked list, determine if the linked list has a cycle in it."
+  },
+  {
+    "title": "Reorder List",
+    "topic": "Linked List",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/reorder-list/",
+    "companyTags": ["Meta", "Amazon", "Google", "Uber"],
+    "description": "You are given the head of a singly linked-list. Reorder the list to be: L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …"
+  },
+  {
+    "title": "Remove Nth Node From End of List",
+    "topic": "Linked List",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/",
+    "companyTags": ["Amazon", "Google", "Meta", "Walmart"],
+    "description": "Given the head of a linked list, remove the nth node from the end of the list and return its head."
+  },
+  {
+    "title": "Merge k Sorted Lists",
+    "topic": "Linked List",
+    "difficulty": "Hard",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/merge-k-sorted-lists/",
+    "companyTags": ["Amazon", "Google", "Meta", "Microsoft", "Uber"],
+    "description": "You are given an array of k linked-lists lists, each linked-list is sorted in ascending order. Merge all the linked-lists into one sorted linked-list and return it."
+  },
+  {
+    "title": "Invert Binary Tree",
+    "topic": "Trees",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/invert-binary-tree/",
+    "companyTags": ["Google", "Amazon", "Meta", "Microsoft"],
+    "description": "Given the root of a binary tree, invert the tree, and return its root."
+  },
+  {
+    "title": "Maximum Depth of Binary Tree",
+    "topic": "Trees",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
+    "companyTags": ["Amazon", "Google", "Microsoft", "Apple", "Adobe"],
+    "description": "Given the root of a binary tree, return its maximum depth."
+  },
+  {
+    "title": "Same Tree",
+    "topic": "Trees",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/same-tree/",
+    "companyTags": ["Amazon", "Google", "Microsoft", "Uber"],
+    "description": "Given the roots of two binary trees p and q, write a function to check if they are the same or not."
+  },
+  {
+    "title": "Subtree of Another Tree",
+    "topic": "Trees",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/subtree-of-another-tree/",
+    "companyTags": ["Amazon", "Meta", "Google", "Apple"],
+    "description": "Given the roots of two binary trees root and subRoot, return true if there is a subtree of root with the same structure and node values of subRoot."
+  },
+  {
+    "title": "Lowest Common Ancestor of a Binary Search Tree",
+    "topic": "BST",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/",
+    "companyTags": ["Amazon", "Meta", "Microsoft", "Adobe"],
+    "description": "Given a binary search tree (BST), find the lowest common ancestor (LCA) node of two given nodes in the BST."
+  },
+  {
+    "title": "Binary Tree Level Order Traversal",
+    "topic": "Trees",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/binary-tree-level-order-traversal/",
+    "companyTags": ["Amazon", "Meta", "Microsoft", "Google", "Walmart"],
+    "description": "Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level)."
+  },
+  {
+    "title": "Validate Binary Search Tree",
+    "topic": "BST",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/validate-binary-search-tree/",
+    "companyTags": ["Amazon", "Meta", "Microsoft", "Bloomberg", "Goldman Sachs"],
+    "description": "Given the root of a binary tree, determine if it is a valid binary search tree (BST)."
+  },
+  {
+    "title": "Kth Smallest Element in a BST",
+    "topic": "BST",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/kth-smallest-element-in-a-bst/",
+    "companyTags": ["Amazon", "Google", "Uber", "Microsoft"],
+    "description": "Given the root of a binary search tree, and an integer k, return the kth smallest value (1-indexed) of all the values of the nodes in the tree."
+  },
+  {
+    "title": "Construct Binary Tree from Preorder and Inorder Traversal",
+    "topic": "Trees",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/",
+    "companyTags": ["Amazon", "Microsoft", "Meta", "Flipkart"],
+    "description": "Given two integer arrays preorder and inorder, construct and return the binary tree."
+  },
+  {
+    "title": "Binary Tree Maximum Path Sum",
+    "topic": "Trees",
+    "difficulty": "Hard",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/binary-tree-maximum-path-sum/",
+    "companyTags": ["Meta", "Google", "Amazon", "Microsoft", "Uber"],
+    "description": "A path in a binary tree is a sequence of nodes where each pair of adjacent nodes in the sequence has an edge connecting them. Return the maximum path sum of any non-empty path."
+  },
+  {
+    "title": "Serialize and Deserialize Binary Tree",
+    "topic": "Trees",
+    "difficulty": "Hard",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/",
+    "companyTags": ["Meta", "Amazon", "Google", "Microsoft", "Uber"],
+    "description": "Design an algorithm to serialize and deserialize a binary tree."
+  },
+  {
+    "title": "Implement Trie (Prefix Tree)",
+    "topic": "Trees",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/implement-trie-prefix-tree/",
+    "companyTags": ["Google", "Amazon", "Microsoft", "Twitter", "Atlassian"],
+    "description": "A trie (pronounced as 'try') or prefix tree is a tree data structure used to efficiently store and retrieve keys in a dataset of strings."
+  },
+  {
+    "title": "Design Add and Search Words Data Structure",
+    "topic": "Trees",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/design-add-and-search-words-data-structure/",
+    "companyTags": ["Meta", "Amazon", "Google"],
+    "description": "Design a data structure that supports adding new words and finding if a string matches any previously added string."
+  },
+  {
+    "title": "Word Search II",
+    "topic": "Backtracking",
+    "difficulty": "Hard",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/word-search-ii/",
+    "companyTags": ["Amazon", "Microsoft", "Google", "Uber"],
+    "description": "Given an m x n board of characters and a list of strings words, return all words on the board."
+  },
+  {
+    "title": "Kth Largest Element in a Stream",
+    "topic": "Heap",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/kth-largest-element-in-a-stream/",
+    "companyTags": ["Amazon", "Meta", "Google"],
+    "description": "Design a class to find the kth largest element in a stream."
+  },
+  {
+    "title": "Last Stone Weight",
+    "topic": "Heap",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/last-stone-weight/",
+    "companyTags": ["Amazon", "Google", "Adobe"],
+    "description": "You are given an array of integers stones where stones[i] is the weight of the ith stone. Combine two heaviest stones until one or zero remains."
+  },
+  {
+    "title": "K Closest Points to Origin",
+    "topic": "Heap",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/k-closest-points-to-origin/",
+    "companyTags": ["Meta", "Amazon", "Google", "Asana"],
+    "description": "Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane and an integer k, return the k closest points to the origin (0, 0)."
+  },
+  {
+    "title": "Kth Largest Element in an Array",
+    "topic": "Heap",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/kth-largest-element-in-an-array/",
+    "companyTags": ["Meta", "Amazon", "Google", "Microsoft", "Goldman Sachs"],
+    "description": "Given an integer array nums and an integer k, return the kth largest element in the array."
+  },
+  {
+    "title": "Task Scheduler",
+    "topic": "Heap",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/task-scheduler/",
+    "companyTags": ["Meta", "Amazon", "Microsoft", "Uber"],
+    "description": "Given a characters array tasks, representing the tasks a CPU needs to do, and a cooldown integer n, determine the minimum number of units of time."
+  },
+  {
+    "title": "Find Median from Data Stream",
+    "topic": "Heap",
+    "difficulty": "Hard",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/find-median-from-data-stream/",
+    "companyTags": ["Google", "Amazon", "Meta", "Goldman Sachs", "Microsoft"],
+    "description": "The median is the middle value in an ordered integer list. Design a data structure that supports addNum and findMedian."
+  },
+  {
+    "title": "Number of Islands",
+    "topic": "Graph",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/number-of-islands/",
+    "companyTags": ["Amazon", "Google", "Meta", "Microsoft", "Bloomberg", "Walmart"],
+    "description": "Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands."
+  },
+  {
+    "title": "Clone Graph",
+    "topic": "Graph",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/clone-graph/",
+    "companyTags": ["Meta", "Amazon", "Google", "Microsoft"],
+    "description": "Given a reference of a node in a connected undirected graph. Return a deep copy (clone) of the graph."
+  },
+  {
+    "title": "Pacific Atlantic Water Flow",
+    "topic": "Graph",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/pacific-atlantic-water-flow/",
+    "companyTags": ["Google", "Amazon", "Meta", "Apple"],
+    "description": "Find all grid coordinates where water can flow to both the Pacific and Atlantic oceans."
+  },
+  {
+    "title": "Course Schedule",
+    "topic": "Graph",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/course-schedule/",
+    "companyTags": ["Amazon", "Google", "Meta", "Microsoft", "Uber", "Flipkart"],
+    "description": "There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. Determine if you can finish all courses."
+  },
+  {
+    "title": "Course Schedule II",
+    "topic": "Graph",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/course-schedule-ii/",
+    "companyTags": ["Amazon", "Google", "Meta", "Microsoft", "Atlassian"],
+    "description": "Return the ordering of courses you should take to finish all courses using topological sort."
+  },
+  {
+    "title": "Word Ladder",
+    "topic": "Graph",
+    "difficulty": "Hard",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/word-ladder/",
+    "companyTags": ["Amazon", "Meta", "Google", "Microsoft", "Uber"],
+    "description": "A transformation sequence from word beginWord to word endWord using a dictionary wordList is a sequence of words where each adjacent pair differs by a single letter. Return the length of the shortest sequence."
+  },
+  {
+    "title": "Subsets",
+    "topic": "Backtracking",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/subsets/",
+    "companyTags": ["Meta", "Amazon", "Google", "Microsoft", "Bloomberg"],
+    "description": "Given an integer array nums of unique elements, return all possible subsets (the power set)."
+  },
+  {
+    "title": "Combination Sum",
+    "topic": "Backtracking",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/combination-sum/",
+    "companyTags": ["Amazon", "Meta", "Google", "Microsoft", "Airbnb"],
+    "description": "Given an array of distinct integers candidates and a target integer target, return a list of all unique combinations of candidates where the chosen numbers sum to target."
+  },
+  {
+    "title": "Permutations",
+    "topic": "Backtracking",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/permutations/",
+    "companyTags": ["Amazon", "Meta", "Microsoft", "Google", "Adobe"],
+    "description": "Given an array nums of distinct integers, return all the possible permutations. You can return the answer in any order."
+  },
+  {
+    "title": "Subsets II",
+    "topic": "Backtracking",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/subsets-ii/",
+    "companyTags": ["Amazon", "Google", "Meta"],
+    "description": "Given an integer array nums that may contain duplicates, return all possible subsets (the power set)."
+  },
+  {
+    "title": "N-Queens",
+    "topic": "Backtracking",
+    "difficulty": "Hard",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/n-queens/",
+    "companyTags": ["Meta", "Amazon", "Microsoft", "Google"],
+    "description": "The n-queens puzzle is the problem of placing n queens on an n x n chessboard such that no two queens attack each other."
+  },
+  {
+    "title": "Climbing Stairs",
+    "topic": "Dynamic Programming",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/climbing-stairs/",
+    "companyTags": ["Amazon", "Google", "Microsoft", "Apple", "Adobe"],
+    "description": "You are climbing a staircase. It takes n steps to reach the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?"
+  },
+  {
+    "title": "Min Cost Climbing Stairs",
+    "topic": "Dynamic Programming",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/min-cost-climbing-stairs/",
+    "companyTags": ["Amazon", "Apple", "Google"],
+    "description": "You are given an integer array cost where cost[i] is the cost of ith step on a staircase. Return the minimum cost to reach the top of the floor."
+  },
+  {
+    "title": "House Robber",
+    "topic": "Dynamic Programming",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/house-robber/",
+    "companyTags": ["Amazon", "Google", "Microsoft", "Meta", "Goldman Sachs"],
+    "description": "You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you is adjacent houses have security systems connected."
+  },
+  {
+    "title": "House Robber II",
+    "topic": "Dynamic Programming",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/house-robber-ii/",
+    "companyTags": ["Microsoft", "Amazon", "Google"],
+    "description": "All houses at this place are arranged in a circle. Rob the maximum amount of money without alerting police."
+  },
+  {
+    "title": "Longest Palindromic Substring",
+    "topic": "Dynamic Programming",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/longest-palindromic-substring/",
+    "companyTags": ["Amazon", "Microsoft", "Google", "Meta", "Adobe"],
+    "description": "Given a string s, return the longest palindromic substring in s."
+  },
+  {
+    "title": "Palindromic Substrings",
+    "topic": "Dynamic Programming",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/palindromic-substrings/",
+    "companyTags": ["Meta", "Amazon", "Google", "Twitter"],
+    "description": "Given a string s, return the number of palindromic substrings in it."
+  },
+  {
+    "title": "Decode Ways",
+    "topic": "Dynamic Programming",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/decode-ways/",
+    "companyTags": ["Meta", "Google", "Amazon", "Microsoft", "Uber"],
+    "description": "A message containing letters from A-Z can be encoded into numbers using the mapping 'A' -> '1', ..., 'Z' -> '26'. Determine total ways to decode."
+  },
+  {
+    "title": "Coin Change",
+    "topic": "Dynamic Programming",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/coin-change/",
+    "companyTags": ["Amazon", "Microsoft", "Google", "Meta", "Walmart", "Goldman Sachs"],
+    "description": "You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money. Return the fewest number of coins."
+  },
+  {
+    "title": "Maximum Product Subarray",
+    "topic": "Dynamic Programming",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/maximum-product-subarray/",
+    "companyTags": ["Amazon", "Google", "Microsoft", "Meta", "LinkedIn"],
+    "description": "Given an integer array nums, find a subarray that has the largest product, and return the product."
+  },
+  {
+    "title": "Word Break",
+    "topic": "Dynamic Programming",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/word-break/",
+    "companyTags": ["Meta", "Amazon", "Google", "Microsoft", "Apple", "Bloomberg"],
+    "description": "Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of one or more dictionary words."
+  },
+  {
+    "title": "Longest Increasing Subsequence",
+    "topic": "Dynamic Programming",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/longest-increasing-subsequence/",
+    "companyTags": ["Google", "Amazon", "Microsoft", "Meta", "Adobe"],
+    "description": "Given an integer array nums, return the length of the longest strictly increasing subsequence."
+  },
+  {
+    "title": "Unique Paths",
+    "topic": "Dynamic Programming",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/unique-paths/",
+    "companyTags": ["Google", "Amazon", "Microsoft", "Meta", "Walmart"],
+    "description": "There is a robot on an m x n grid. The robot can only move either down or right. Return the number of possible unique paths."
+  },
+  {
+    "title": "Longest Common Subsequence",
+    "topic": "Dynamic Programming",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/longest-common-subsequence/",
+    "companyTags": ["Amazon", "Google", "Microsoft", "Adobe"],
+    "description": "Given two strings text1 and text2, return the length of their longest common subsequence."
+  },
+  {
+    "title": "Jump Game",
+    "topic": "Greedy",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/jump-game/",
+    "companyTags": ["Amazon", "Meta", "Microsoft", "Google", "Apple"],
+    "description": "You are given an integer array nums. You are initially positioned at the array's first index. Return true if you can reach the last index."
+  },
+  {
+    "title": "Jump Game II",
+    "topic": "Greedy",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/jump-game-ii/",
+    "companyTags": ["Amazon", "Google", "Microsoft", "Meta"],
+    "description": "Return the minimum number of jumps to reach the last index."
+  },
+  {
+    "title": "Gas Station",
+    "topic": "Greedy",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/gas-station/",
+    "companyTags": ["Google", "Amazon", "Microsoft", "Meta", "Goldman Sachs"],
+    "description": "There are n gas stations along a circular route. Return the starting gas station's index if you can travel around the circuit once clockwise."
+  },
+  {
+    "title": "Insert Interval",
+    "topic": "Intervals",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/insert-interval/",
+    "companyTags": ["Google", "Meta", "Amazon", "Microsoft", "Apple"],
+    "description": "You are given an array of non-overlapping intervals where intervals[i] = [starti, endi] sorted in ascending order by starti. Insert newInterval into intervals."
+  },
+  {
+    "title": "Merge Intervals",
+    "topic": "Intervals",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/merge-intervals/",
+    "companyTags": ["Meta", "Google", "Amazon", "Microsoft", "Bloomberg", "JPMorgan"],
+    "description": "Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals, and return an array of the non-overlapping intervals."
+  },
+  {
+    "title": "Non-overlapping Intervals",
+    "topic": "Intervals",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/non-overlapping-intervals/",
+    "companyTags": ["Meta", "Amazon", "Google"],
+    "description": "Given an array of intervals intervals where intervals[i] = [starti, endi], return the minimum number of intervals you need to remove to make the rest non-overlapping."
+  },
+  {
+    "title": "Meeting Rooms II",
+    "topic": "Intervals",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/meeting-rooms-ii/",
+    "companyTags": ["Google", "Amazon", "Meta", "Microsoft", "Uber", "Bloomberg"],
+    "description": "Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],...], find the minimum number of conference rooms required."
+  },
+  {
+    "title": "Subarray Sum Equals K",
+    "topic": "Prefix Sum",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/subarray-sum-equals-k/",
+    "companyTags": ["Meta", "Amazon", "Google", "Microsoft", "Apple", "Goldman Sachs"],
+    "description": "Given an array of integers nums and an integer k, return the total number of subarrays whose sum equals to k."
+  },
+  {
+    "title": "Implement Queue using Stacks",
+    "topic": "Queue",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/implement-queue-using-stacks/",
+    "companyTags": ["Amazon", "Microsoft", "Google", "Apple", "Goldman Sachs"],
+    "description": "Implement a first in first out (FIFO) queue using only two stacks."
+  },
+  {
+    "title": "Sliding Window Maximum",
+    "topic": "Queue",
+    "difficulty": "Hard",
+    "platform": "LeetCode",
+    "link": "https://leetcode.com/problems/sliding-window-maximum/",
+    "companyTags": ["Amazon", "Google", "Meta", "Microsoft", "Uber"],
+    "description": "You are given an array of integers nums, there is a sliding window of size k which is moving from the very left of the array to the very right. Return the max sliding window."
+  }
+]

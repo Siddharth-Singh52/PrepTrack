@@ -1,0 +1,4 @@
+/* Question bank styling extensions */
+.question-card-hover:hover {
+  border-color: rgba(16, 185, 129, 0.4);
+}
