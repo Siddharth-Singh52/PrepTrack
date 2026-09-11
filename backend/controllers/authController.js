@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import { DB } from '../services/dbStore.js';
+import User from '../models/User.js';
 import { validateEmail, validatePassword } from '../utils/validation.js';
 
 const generateToken = (id) => {
@@ -40,7 +40,7 @@ export const register = async (req, res, next) => {
       });
     }
 
-    const existingUser = await DB.findUserByEmail(email);
+    const existingUser = await User.findOne({ email: email.toLowerCase() });
     if (existingUser) {
       return res.status(400).json({
         success: false,
@@ -51,7 +51,7 @@ export const register = async (req, res, next) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    const user = await DB.createUser({
+    const user = await User.create({
       name: name.trim(),
       email: email.trim().toLowerCase(),
       password: hashedPassword,
@@ -93,7 +93,7 @@ export const login = async (req, res, next) => {
       });
     }
 
-    const user = await DB.findUserByEmail(email);
+    const user = await User.findOne({ email: email.toLowerCase() });
     if (!user) {
       return res.status(401).json({
         success: false,
@@ -134,7 +134,7 @@ export const login = async (req, res, next) => {
 
 export const getMe = async (req, res, next) => {
   try {
-    const user = await DB.findUserById(req.user._id);
+    const user = await User.findById(req.user._id).select('-password -targetCompanies');
     if (!user) {
       return res.status(404).json({
         success: false,

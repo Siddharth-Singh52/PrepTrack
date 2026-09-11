@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { DB } from '../services/dbStore.js';
+import User from '../models/User.js';
 
 export const protect = async (req, res, next) => {
   let token;
@@ -19,7 +19,7 @@ export const protect = async (req, res, next) => {
     const secret = process.env.JWT_SECRET || 'preptrack_jwt_super_secret_key_2026';
     const decoded = jwt.verify(token, secret);
 
-    const user = await DB.findUserById(decoded.id);
+    const user = await User.findById(decoded.id).select('-password -targetCompanies');
     if (!user) {
       return res.status(401).json({
         success: false,

@@ -1,11 +1,12 @@
-import { DB } from '../services/dbStore.js';
+import Placement from '../models/Placement.js';
 
 export const getPlacements = async (req, res, next) => {
   try {
     const userId = req.user._id;
     const { status, search, jobType, sort } = req.query;
 
-    let placements = await DB.getPlacements(userId);
+    const allUserPlacements = await Placement.find({ user: userId }).sort({ createdAt: -1 }).lean();
+    let placements = [...allUserPlacements];
 
     if (search && search.trim()) {
       const s = search.toLowerCase().trim();
@@ -38,7 +39,6 @@ export const getPlacements = async (req, res, next) => {
       placements.sort((a, b) => new Date(b.applicationDate || b.createdAt) - new Date(a.applicationDate || a.createdAt));
     }
 
-    const allUserPlacements = await DB.getPlacements(userId);
     const total = allUserPlacements.length;
     const active = allUserPlacements.filter((p) => !['Rejected', 'Withdrawn', 'Offer'].includes(p.status)).length;
     const interviews = allUserPlacements.filter((p) =>
@@ -78,7 +78,8 @@ export const createPlacement = async (req, res, next) => {
       });
     }
 
-    const newPlacement = await DB.createPlacement(userId, {
+    const newPlacement = await Placement.create({
+      user: userId,
       company: company.trim(),
       role: role.trim(),
       location: location || '',
@@ -106,7 +107,11 @@ export const updatePlacement = async (req, res, next) => {
     const userId = req.user._id;
     const { id } = req.params;
 
-    const updated = await DB.updatePlacement(userId, id, req.body);
+    const updated = await Placement.findOneAndUpdate(
+      { _id: id, user: userId },
+      { $set: req.body },
+      { new: true }
+    );
     if (!updated) {
       return res.status(404).json({
         success: false,
@@ -129,7 +134,7 @@ export const deletePlacement = async (req, res, next) => {
     const userId = req.user._id;
     const { id } = req.params;
 
-    const deleted = await DB.deletePlacement(userId, id);
+    const deleted = await Placement.findOneAndDelete({ _id: id, user: userId });
     if (!deleted) {
       return res.status(404).json({
         success: false,

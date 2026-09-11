@@ -1,4 +1,5 @@
-import { DB } from '../services/dbStore.js';
+import Question from '../models/Question.js';
+import UserProgress from '../models/UserProgress.js';
 
 const REVISION_INTERVALS_DAYS = {
   1: 1,
@@ -11,8 +12,10 @@ const REVISION_INTERVALS_DAYS = {
 export const getRevisions = async (req, res, next) => {
   try {
     const userId = req.user._id;
-    const progressList = await DB.getUserProgress(userId);
-    const allQuestions = await DB.getAllQuestions();
+    const [progressList, allQuestions] = await Promise.all([
+      UserProgress.find({ user: userId }).populate('question').lean(),
+      Question.find().lean(),
+    ]);
 
     const qMap = new Map();
     allQuestions.forEach((q) => qMap.set(q._id.toString(), q));
@@ -99,7 +102,7 @@ export const completeRevision = async (req, res, next) => {
     const { questionId } = req.params;
     const userId = req.user._id;
 
-    const prog = await DB.getProgressByQuestion(userId, questionId);
+    const prog = await UserProgress.findOne({ user: userId, question: questionId });
     if (!prog) {
       return res.status(404).json({
         success: false,
@@ -115,12 +118,18 @@ export const completeRevision = async (req, res, next) => {
     const nextDate = new Date();
     nextDate.setDate(now.getDate() + intervalDays);
 
-    const updated = await DB.upsertUserProgress(userId, questionId, {
-      revisionStage: nextStage,
-      lastRevisedAt: now,
-      nextRevisionDate: nextDate,
-      status: 'Completed',
-    });
+    const updated = await UserProgress.findOneAndUpdate(
+      { user: userId, question: questionId },
+      {
+        $set: {
+          revisionStage: nextStage,
+          lastRevisedAt: now,
+          nextRevisionDate: nextDate,
+          status: 'Completed',
+        },
+      },
+      { new: true, upsert: true }
+    ).populate('question');
 
     res.status(200).json({
       success: true,

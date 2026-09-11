@@ -1,12 +1,15 @@
-import { DB } from '../services/dbStore.js';
+import Question from '../models/Question.js';
+import UserProgress from '../models/UserProgress.js';
 
 export const getQuestions = async (req, res, next) => {
   try {
     const userId = req.user._id;
     const { search, topic, difficulty, company, status, favorite, platform, sort } = req.query;
 
-    const allQuestions = await DB.getAllQuestions();
-    const userProgress = await DB.getUserProgress(userId);
+    const [allQuestions, userProgress] = await Promise.all([
+      Question.find().lean(),
+      UserProgress.find({ user: userId }).populate('question').lean(),
+    ]);
 
     const progressMap = new Map();
     userProgress.forEach((p) => {
@@ -110,7 +113,7 @@ export const getQuestionById = async (req, res, next) => {
     const { id } = req.params;
     const userId = req.user._id;
 
-    const question = await DB.getQuestionById(id);
+    const question = await Question.findById(id).lean();
     if (!question) {
       return res.status(404).json({
         success: false,
@@ -118,7 +121,7 @@ export const getQuestionById = async (req, res, next) => {
       });
     }
 
-    const prog = await DB.getProgressByQuestion(userId, id);
+    const prog = await UserProgress.findOne({ user: userId, question: id });
 
     res.status(200).json({
       success: true,
@@ -149,7 +152,7 @@ export const createQuestion = async (req, res, next) => {
       });
     }
 
-    const newQuestion = await DB.createQuestion({
+    const newQuestion = await Question.create({
       title: title.trim(),
       topic: topic.trim(),
       difficulty,
@@ -172,7 +175,7 @@ export const createQuestion = async (req, res, next) => {
 export const updateQuestion = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const updated = await DB.updateQuestion(id, req.body);
+    const updated = await Question.findByIdAndUpdate(id, req.body, { new: true });
 
     if (!updated) {
       return res.status(404).json({
@@ -194,7 +197,7 @@ export const updateQuestion = async (req, res, next) => {
 export const deleteQuestion = async (req, res, next) => {
   try {
     const { id } = req.params;
-    await DB.deleteQuestion(id);
+    await Question.findByIdAndDelete(id);
 
     res.status(200).json({
       success: true,
@@ -218,7 +221,7 @@ export const updateProgress = async (req, res, next) => {
       });
     }
 
-    const currentProg = await DB.getProgressByQuestion(userId, questionId);
+    const currentProg = await UserProgress.findOne({ user: userId, question: questionId });
 
     const updateData = {
       status,
@@ -235,7 +238,11 @@ export const updateProgress = async (req, res, next) => {
       }
     }
 
-    const updated = await DB.upsertUserProgress(userId, questionId, updateData);
+    const updated = await UserProgress.findOneAndUpdate(
+      { user: userId, question: questionId },
+      { $set: updateData },
+      { new: true, upsert: true }
+    ).populate('question');
 
     res.status(200).json({
       success: true,
@@ -253,7 +260,11 @@ export const updateNotes = async (req, res, next) => {
     const { notes } = req.body;
     const userId = req.user._id;
 
-    const updated = await DB.upsertUserProgress(userId, questionId, { notes: notes || '' });
+    const updated = await UserProgress.findOneAndUpdate(
+      { user: userId, question: questionId },
+      { $set: { notes: notes || '' } },
+      { new: true, upsert: true }
+    ).populate('question');
 
     res.status(200).json({
       success: true,
@@ -270,10 +281,14 @@ export const toggleFavorite = async (req, res, next) => {
     const { questionId } = req.params;
     const userId = req.user._id;
 
-    const currentProg = await DB.getProgressByQuestion(userId, questionId);
+    const currentProg = await UserProgress.findOne({ user: userId, question: questionId });
     const newFav = !(currentProg?.favorite || false);
 
-    const updated = await DB.upsertUserProgress(userId, questionId, { favorite: newFav });
+    const updated = await UserProgress.findOneAndUpdate(
+      { user: userId, question: questionId },
+      { $set: { favorite: newFav } },
+      { new: true, upsert: true }
+    ).populate('question');
 
     res.status(200).json({
       success: true,

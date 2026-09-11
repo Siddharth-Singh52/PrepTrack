@@ -1,6 +1,6 @@
 {
   "name": "PrepTrack",
-  "description": "Full-stack interview preparation and placement management platform for DSA, company prep, spaced revision, job applications, goals, insights, and AI ATS resume analysis.",
+  "description": "Full-stack interview preparation and placement management platform for DSA, company preparation, spaced revision, job applications, goals, insights, and AI ATS resume analysis.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

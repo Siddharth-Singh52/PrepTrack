@@ -4,7 +4,7 @@ import express from 'express';
 import path from 'path';
 
 import { connectDB } from './config/db.js';
-import { initializeData } from './services/dbStore.js';
+import { initializeData } from './services/seedData.js';
 import authRoutes from './routes/authRoutes.js';
 import questionRoutes from './routes/questionRoutes.js';
 import revisionRoutes from './routes/revisionRoutes.js';

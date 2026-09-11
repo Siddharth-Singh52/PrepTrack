@@ -1,9 +1,12 @@
-import { DB } from '../services/dbStore.js';
+import User from '../models/User.js';
+import Question from '../models/Question.js';
+import UserProgress from '../models/UserProgress.js';
+import Placement from '../models/Placement.js';
 
 export const getProfile = async (req, res, next) => {
   try {
     const userId = req.user._id;
-    const user = await DB.findUserById(userId);
+    const user = await User.findById(userId).select('-password -targetCompanies');
 
     if (!user) {
       return res.status(404).json({
@@ -12,9 +15,11 @@ export const getProfile = async (req, res, next) => {
       });
     }
 
-    const allQuestions = await DB.getAllQuestions();
-    const userProgress = await DB.getUserProgress(userId);
-    const placements = await DB.getPlacements(userId);
+    const [allQuestions, userProgress, placements] = await Promise.all([
+      Question.find().lean(),
+      UserProgress.find({ user: userId }).lean(),
+      Placement.find({ user: userId }).lean(),
+    ]);
 
     const completedDSA = userProgress.filter((p) => p.status === 'Completed').length;
     const totalQuestions = allQuestions.length;
@@ -55,7 +60,8 @@ export const updateProfile = async (req, res, next) => {
     if (leetcode !== undefined) updateData.leetcode = leetcode.trim();
     if (portfolio !== undefined) updateData.portfolio = portfolio.trim();
 
-    const updated = await DB.updateUser(userId, updateData);
+    const updated = await User.findByIdAndUpdate(userId, updateData, { new: true })
+      .select('-password -targetCompanies');
 
     res.status(200).json({
       success: true,

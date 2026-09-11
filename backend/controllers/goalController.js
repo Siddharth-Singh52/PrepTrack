@@ -1,13 +1,18 @@
-import { DB } from '../services/dbStore.js';
+import Goal from '../models/Goal.js';
+import UserProgress from '../models/UserProgress.js';
+import Placement from '../models/Placement.js';
+import ResumeAnalysis from '../models/ResumeAnalysis.js';
 
 export const getGoals = async (req, res, next) => {
   try {
     const userId = req.user._id;
 
-    const rawGoals = await DB.getGoals(userId);
-    const userProgress = await DB.getUserProgress(userId);
-    const placements = await DB.getPlacements(userId);
-    const resumeAnalyses = await DB.getResumeAnalyses(userId);
+    const [rawGoals, userProgress, placements, resumeAnalyses] = await Promise.all([
+      Goal.find({ user: userId }).sort({ createdAt: -1 }).lean(),
+      UserProgress.find({ user: userId }).populate('question').lean(),
+      Placement.find({ user: userId }).sort({ createdAt: -1 }).lean(),
+      ResumeAnalysis.find({ user: userId }).sort({ createdAt: -1 }).lean(),
+    ]);
 
     const completedDSA = userProgress.filter((p) => p.status === 'Completed').length;
     const completedRevisions = userProgress.filter((p) => (p.revisionStage || 0) >= 1 && p.lastRevisedAt).length;
@@ -44,7 +49,10 @@ export const getGoals = async (req, res, next) => {
 
         // Update in DB if changed
         if (current !== g.currentValue || isCompleted !== g.completed) {
-          await DB.updateGoal(userId, g._id, { currentValue: current, completed: isCompleted });
+          await Goal.findOneAndUpdate(
+            { _id: g._id, user: userId },
+            { $set: { currentValue: current, completed: isCompleted } }
+          );
         }
 
         return {
@@ -94,7 +102,8 @@ export const createGoal = async (req, res, next) => {
       });
     }
 
-    const newGoal = await DB.createGoal(userId, {
+    const newGoal = await Goal.create({
+      user: userId,
       title: title.trim(),
       description: description || '',
       category: category || 'DSA',
@@ -129,7 +138,11 @@ export const updateGoal = async (req, res, next) => {
     if (deadline !== undefined) updateData.deadline = deadline ? new Date(deadline) : null;
     if (completed !== undefined) updateData.completed = completed;
 
-    const updated = await DB.updateGoal(userId, id, updateData);
+    const updated = await Goal.findOneAndUpdate(
+      { _id: id, user: userId },
+      { $set: updateData },
+      { new: true }
+    );
     if (!updated) {
       return res.status(404).json({
         success: false,
@@ -152,7 +165,7 @@ export const deleteGoal = async (req, res, next) => {
     const userId = req.user._id;
     const { id } = req.params;
 
-    const deleted = await DB.deleteGoal(userId, id);
+    const deleted = await Goal.findOneAndDelete({ _id: id, user: userId });
     if (!deleted) {
       return res.status(404).json({
         success: false,

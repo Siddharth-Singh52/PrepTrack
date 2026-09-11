@@ -1,4 +1,4 @@
-import { DB } from '../services/dbStore.js';
+import ResumeAnalysis from '../models/ResumeAnalysis.js';
 import { extractTextFromFile } from '../services/resumeParserService.js';
 import { analyzeResume } from '../services/geminiService.js';
 
@@ -29,7 +29,8 @@ export const analyzeResumeFile = async (req, res, next) => {
     const analysisResult = await analyzeResume(extractedText);
 
     // Save analysis record
-    const saved = await DB.createResumeAnalysis(userId, {
+    const saved = await ResumeAnalysis.create({
+      user: userId,
       filename: originalname,
       atsScore: analysisResult.atsScore || 75,
       sectionScores: analysisResult.sectionScores || {},
@@ -53,7 +54,7 @@ export const analyzeResumeFile = async (req, res, next) => {
 export const getResumeHistory = async (req, res, next) => {
   try {
     const userId = req.user._id;
-    const history = await DB.getResumeAnalyses(userId);
+    const history = await ResumeAnalysis.find({ user: userId }).sort({ createdAt: -1 }).lean();
 
     res.status(200).json({
       success: true,
