@@ -206,34 +206,28 @@ export const ResumeAnalyzer = () => {
           {/* Section Scores Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <SectionScoreCard
-              title="Formatting & Readability"
-              score={analysisResult.sectionScores?.formatting || 80}
-              feedback={analysisResult.sectionScores?.formattingFeedback}
+              title="Contact Information"
+              score={analysisResult.sectionScores?.contact ?? 0}
             />
             <SectionScoreCard
-              title="ATS Keyword Density"
-              score={analysisResult.sectionScores?.keywordDensity || 75}
-              feedback={analysisResult.sectionScores?.keywordFeedback}
+              title="Professional Summary"
+              score={analysisResult.sectionScores?.summary ?? 0}
             />
             <SectionScoreCard
-              title="Impact & Quantified Experience"
-              score={analysisResult.sectionScores?.experienceImpact || 70}
-              feedback={analysisResult.sectionScores?.experienceFeedback}
+              title="Technical Skills"
+              score={analysisResult.sectionScores?.skills ?? 0}
             />
             <SectionScoreCard
-              title="Technical Skills Hierarchy"
-              score={analysisResult.sectionScores?.skillsClarity || 85}
-              feedback={analysisResult.sectionScores?.skillsFeedback}
+              title="Work Experience"
+              score={analysisResult.sectionScores?.experience ?? 0}
             />
             <SectionScoreCard
               title="Education & Credentials"
-              score={analysisResult.sectionScores?.education || 90}
-              feedback={analysisResult.sectionScores?.educationFeedback}
+              score={analysisResult.sectionScores?.education ?? 0}
             />
             <SectionScoreCard
-              title="Project Realism & Scope"
-              score={analysisResult.sectionScores?.projectDepth || 75}
-              feedback={analysisResult.sectionScores?.projectFeedback}
+              title="Projects"
+              score={analysisResult.sectionScores?.projects ?? 0}
             />
           </div>
 
